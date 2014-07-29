@@ -1,0 +1,2932 @@
+
+Coffee2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000018b2  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000004e  00800060  000018b2  00001946  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000004  008000ae  008000ae  00001994  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00001994  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000d0  00000000  00000000  000019c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00001d0a  00000000  00000000  00001a94  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000581  00000000  00000000  0000379e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000005f5  00000000  00000000  00003d1f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000364  00000000  00000000  00004314  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000004a7  00000000  00000000  00004678  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00001af0  00000000  00000000  00004b1f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000190  00000000  00000000  0000660f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 a4 05 	jmp	0xb48	; 0xb48 <__ctors_end>
+       4:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+       8:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+       c:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      10:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      14:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      18:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      1c:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      20:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      24:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      28:	0c 94 c3 05 	jmp	0xb86	; 0xb86 <__vector_10>
+      2c:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      30:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      34:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      38:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      3c:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      40:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      44:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      48:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      4c:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+      50:	0c 94 c1 05 	jmp	0xb82	; 0xb82 <__bad_interrupt>
+
+00000054 <__trampolines_end>:
+      54:	a0 00       	.word	0x00a0	; ????
+      56:	24 00       	.word	0x0024	; ????
+	...
+      94:	80 28       	or	r8, r0
+      96:	4a 08       	sbc	r4, r10
+      98:	20 48       	sbci	r18, 0x80	; 128
+      9a:	10 00       	.word	0x0010	; ????
+      9c:	00 40       	sbci	r16, 0x00	; 0
+      9e:	c4 10       	cpse	r12, r4
+      a0:	82 1c       	adc	r8, r2
+      a2:	73 84       	ldd	r7, Z+11	; 0x0b
+      a4:	01 00       	.word	0x0001	; ????
+      a6:	00 20       	and	r0, r0
+      a8:	80 28       	or	r8, r0
+      aa:	c5 08       	sbc	r12, r5
+      ac:	27 84       	ldd	r2, Z+15	; 0x0f
+      ae:	38 02       	muls	r19, r24
+      b0:	00 20       	and	r0, r0
+      b2:	8a 28       	or	r8, r10
+      b4:	c5 84       	ldd	r12, Z+13	; 0x0d
+      b6:	50 4a       	sbci	r21, 0xA0	; 160
+      b8:	01 80       	ldd	r0, Z+1	; 0x01
+      ba:	9c 50       	subi	r25, 0x0C	; 12
+      bc:	80 80       	ld	r8, Z
+      be:	6f 30       	cpi	r22, 0x0F	; 15
+      c0:	21 84       	ldd	r2, Z+9	; 0x09
+      c2:	10 02       	muls	r17, r16
+      c4:	00 20       	and	r0, r0
+      c6:	8a 10       	cpse	r8, r10
+      c8:	a4 8c       	ldd	r10, Z+28	; 0x1c
+      ca:	41 44       	sbci	r20, 0x41	; 65
+      cc:	11 44       	sbci	r17, 0x41	; 65
+      ce:	00 41       	sbci	r16, 0x10	; 16
+      d0:	80 00       	.word	0x0080	; ????
+      d2:	c5 8c       	ldd	r12, Z+29	; 0x1d
+      d4:	01 84       	ldd	r0, Z+9	; 0x09
+      d6:	a8 0f       	add	r26, r24
+      d8:	1c 20       	and	r1, r12
+      da:	8a 10       	cpse	r8, r10
+      dc:	e2 91       	ld	r30, -Z	; undefined
+      de:	22 8a       	std	Z+18, r2	; 0x12
+      e0:	01 30       	cpi	r16, 0x01	; 1
+      e2:	1c 26       	eor	r1, r28
+      e4:	00 80       	ld	r0, Z
+      e6:	8f 90       	pop	r8
+      e8:	02 84       	ldd	r0, Z+10	; 0x0a
+      ea:	00 82       	st	Z, r0
+      ec:	00 10       	cpse	r0, r0
+      ee:	8a 08       	sbc	r8, r10
+      f0:	84 94       	.word	0x9484	; ????
+      f2:	22 0a       	sbc	r2, r18
+      f4:	01 44       	sbci	r16, 0x41	; 65
+      f6:	00 01       	movw	r0, r0
+      f8:	80 00       	.word	0x0080	; ????
+      fa:	65 90       	lpm	r6, Z+
+      fc:	07 84       	ldd	r0, Z+15	; 0x0f
+      fe:	00 42       	sbci	r16, 0x20	; 32
+     100:	00 11       	cpse	r16, r0
+     102:	e4 3b       	cpi	r30, 0xB4	; 180
+     104:	c3 89       	ldd	r28, Z+19	; 0x13
+     106:	21 c4       	rjmp	.+2114   	; 0x94a <__stack+0xeb>
+     108:	10 82       	st	Z, r1
+     10a:	80 20       	and	r8, r0
+     10c:	00 80       	ld	r0, Z
+     10e:	42 00       	.word	0x0042	; ????
+     110:	00 48       	sbci	r16, 0x80	; 128
+     112:	00 40       	sbci	r16, 0x00	; 0
+     114:	00 08       	sbc	r0, r0
+	...
+     182:	00 00       	nop
+     184:	cc 3c       	cpi	r28, 0xCC	; 204
+     186:	f7 fe       	sbrs	r15, 7
+     188:	77 d7       	rcall	.+3822   	; 0x1078 <sed1520SetPixel+0x54>
+     18a:	f1 7d       	andi	r31, 0xD1	; 209
+     18c:	f6 66       	ori	r31, 0x66	; 102
+     18e:	8f 3d       	cpi	r24, 0xDF	; 223
+     190:	f7 f7       	brid	.-4      	; 0x18e <__trampolines_end+0x13a>
+     192:	de 7b       	andi	r29, 0xBE	; 190
+     194:	7b 16       	cp	r7, r27
+     196:	0c 01       	movw	r0, r24
+     198:	92 48       	sbci	r25, 0x82	; 130
+     19a:	25 a5       	ldd	r18, Z+45	; 0x2d
+     19c:	14 92       	xch	Z, r1
+     19e:	20 25       	eor	r18, r0
+     1a0:	b6 95       	lsr	r27
+     1a2:	52 4a       	sbci	r21, 0xA2	; 162
+     1a4:	55 65       	ori	r21, 0x55	; 85
+     1a6:	8c 2a       	or	r8, r28
+     1a8:	4a 22       	and	r4, r26
+     1aa:	08 01       	movw	r0, r16
+     1ac:	52 39       	cpi	r21, 0x92	; 146
+     1ae:	21 8d       	ldd	r18, Z+25	; 0x19
+     1b0:	11 9e       	mul	r1, r17
+     1b2:	20 23       	and	r18, r16
+     1b4:	b6 95       	lsr	r27
+     1b6:	52 4a       	sbci	r21, 0xA2	; 162
+     1b8:	42 a4       	ldd	r4, Z+42	; 0x2a
+     1ba:	ac 44       	sbci	r26, 0x4C	; 76
+     1bc:	21 22       	and	r2, r17
+     1be:	88 02       	muls	r24, r24
+     1c0:	da 49       	sbci	r29, 0x9A	; 154
+     1c2:	21 85       	ldd	r18, Z+9	; 0x09
+     1c4:	d0 92 28 27 	sts	0x2728, r13
+     1c8:	aa 96       	adiw	r28, 0x2a	; 42
+     1ca:	4e 3a       	cpi	r20, 0xAE	; 174
+     1cc:	44 a4       	ldd	r4, Z+44	; 0x2c
+     1ce:	aa 84       	ldd	r10, Y+10	; 0x0a
+     1d0:	10 42       	sbci	r17, 0x20	; 32
+     1d2:	08 00       	.word	0x0008	; ????
+     1d4:	32 4a       	sbci	r19, 0xA2	; 162
+     1d6:	21 a5       	ldd	r18, Z+41	; 0x29
+     1d8:	50 92 28 25 	sts	0x2528, r5
+     1dc:	a3 96       	adiw	r28, 0x23	; 35
+     1de:	42 4a       	sbci	r20, 0xA2	; 162
+     1e0:	45 a4       	ldd	r4, Z+45	; 0x2d
+     1e2:	aa 8a       	std	Y+18, r10	; 0x12
+     1e4:	48 42       	sbci	r20, 0x28	; 40
+     1e6:	08 00       	.word	0x0008	; ????
+     1e8:	62 3f       	cpi	r22, 0xF2	; 242
+     1ea:	f6 fe       	sbrs	r15, 6
+     1ec:	61 d7       	rcall	.+3778   	; 0x10b0 <sed1520SetPixel+0x8c>
+     1ee:	91 fd       	sbrc	r25, 1
+     1f0:	f7 65       	ori	r31, 0x57	; 87
+     1f2:	87 5d       	subi	r24, 0xD7	; 215
+     1f4:	e7 18       	sub	r14, r7
+     1f6:	53 db       	rcall	.-2394   	; 0xfffff89e <__eeprom_end+0xff7ef89e>
+     1f8:	79 42       	sbci	r23, 0x29	; 41
+     1fa:	08 00       	.word	0x0008	; ????
+     1fc:	1c 00       	.word	0x001c	; ????
+	...
+     206:	00 03       	mulsu	r16, r16
+     208:	00 00       	nop
+     20a:	00 00       	nop
+     20c:	00 86       	std	Z+8, r0	; 0x08
+     20e:	0c 00       	.word	0x000c	; ????
+	...
+     220:	00 00       	nop
+     222:	00 f8       	bld	r0, 0
+	...
+     274:	04 0c       	add	r0, r4
+     276:	80 01       	movw	r16, r0
+     278:	02 83       	std	Z+2, r16	; 0x02
+     27a:	90 61       	ori	r25, 0x10	; 16
+	...
+     284:	00 44       	sbci	r16, 0x40	; 64
+     286:	04 78       	andi	r16, 0x84	; 132
+     288:	08 08       	sbc	r0, r8
+     28a:	00 01       	movw	r0, r0
+     28c:	01 02       	muls	r16, r17
+     28e:	00 41       	sbci	r16, 0x10	; 16
+     290:	00 00       	nop
+     292:	00 00       	nop
+     294:	20 00       	.word	0x0020	; ????
+     296:	00 00       	nop
+     298:	00 42       	sbci	r16, 0x20	; 32
+     29a:	08 48       	sbci	r16, 0x88	; 136
+     29c:	80 39       	cpi	r24, 0x90	; 144
+     29e:	c7 9d       	mul	r28, r7
+     2a0:	e3 ce       	rjmp	.-570    	; 0x68 <__trampolines_end+0x14>
+     2a2:	38 4d       	sbci	r19, 0xD8	; 216
+     2a4:	d6 63       	ori	r29, 0x36	; 54
+     2a6:	8f 7b       	andi	r24, 0xBF	; 191
+     2a8:	f6 f6       	brtc	.-68     	; 0x266 <__trampolines_end+0x212>
+     2aa:	dc 72       	andi	r29, 0x2C	; 44
+     2ac:	7b 42       	sbci	r23, 0x2B	; 43
+     2ae:	08 48       	sbci	r16, 0x88	; 136
+     2b0:	00 49       	sbci	r16, 0x90	; 144
+     2b2:	21 1d       	adc	r18, r1
+     2b4:	91 92       	st	Z+, r9
+     2b6:	20 47       	sbci	r18, 0x70	; 112
+     2b8:	aa 94       	dec	r10
+     2ba:	52 12       	cpse	r5, r18
+     2bc:	22 a4       	ldd	r2, Z+42	; 0x2a
+     2be:	ac 4c       	sbci	r26, 0xCC	; 204
+     2c0:	29 43       	sbci	r18, 0x39	; 57
+     2c2:	18 4d       	sbci	r17, 0xD8	; 216
+     2c4:	c0 49       	sbci	r28, 0x90	; 144
+     2c6:	21 05       	cpc	r18, r1
+     2c8:	91 92       	st	Z+, r9
+     2ca:	20 45       	sbci	r18, 0x50	; 80
+     2cc:	aa 94       	dec	r10
+     2ce:	52 12       	cpse	r5, r18
+     2d0:	24 25       	eor	r18, r4
+     2d2:	ab 4c       	sbci	r26, 0xCB	; 203
+     2d4:	51 42       	sbci	r21, 0x21	; 33
+     2d6:	88 4a       	sbci	r24, 0xA8	; 168
+     2d8:	c0 3f       	cpi	r28, 0xF0	; 240
+     2da:	c7 99       	sbic	0x18, 7	; 24
+     2dc:	e3 d7       	rcall	.+4038   	; 0x12a4 <sed1520ShaderExecute+0x1d0>
+     2de:	a1 ed       	ldi	r26, 0xD1	; 209
+     2e0:	ea 64       	ori	r30, 0x4A	; 74
+     2e2:	8e 3b       	cpi	r24, 0xBE	; 190
+     2e4:	c3 38       	cpi	r28, 0x83	; 131
+     2e6:	53 92       	.word	0x9253	; ????
+     2e8:	78 42       	sbci	r23, 0x28	; 40
+     2ea:	08 78       	andi	r16, 0x88	; 136
+     2ec:	00 00       	nop
+     2ee:	00 00       	nop
+     2f0:	80 00       	.word	0x0080	; ????
+     2f2:	20 00       	.word	0x0020	; ????
+     2f4:	00 00       	nop
+     2f6:	02 02       	muls	r16, r18
+     2f8:	00 00       	nop
+     2fa:	00 80       	ld	r0, Z
+     2fc:	00 44       	sbci	r16, 0x40	; 64
+     2fe:	04 00       	.word	0x0004	; ????
+     300:	00 00       	nop
+     302:	00 00       	nop
+     304:	60 00       	.word	0x0060	; ????
+     306:	38 00       	.word	0x0038	; ????
+     308:	00 00       	nop
+     30a:	07 03       	mulsu	r16, r23
+     30c:	00 00       	nop
+     30e:	00 c0       	rjmp	.+0      	; 0x310 <__trampolines_end+0x2bc>
+	...
+
+00000328 <imageData>:
+	...
+     33c:	00 00 80 e0 f0 f0 38 38 3c 1c 1c 1c 1c 0e 0e 0e     ......88<.......
+     34c:	0e 0e 06 06 07 07 07 07 07 07 07 07 07 07 07 07     ................
+     35c:	07 07 07 07 06 06 06 06 06 06 0e 0c 0c 0c 0c 18     ................
+     36c:	18 18 10 00 00 00 00 00 00 00 00 c0 c0 c0 c0 80     ................
+	...
+     438:	00 ce df bf 7f 7f fe fc f8 f8 f0 f0 f0 e0 e0 f8     ................
+     448:	fc fc fc fc fc fc fc fe fe fe fe fe fe fe fe fe     ................
+     458:	fe fc fc fc fc fc fc f8 f8 f8 f0 f0 f0 80 00 00     ................
+     468:	80 80 80 80 80 80 80 c0 c0 c0 c0 e0 e3 ff ff ff     ................
+     478:	7e 00 00 00 00 1c 3c 3c 7c fc fc fc f8 e0 00 00     ~.....<<|.......
+	...
+     494:	00 00 80 c0 e0 60 70 30 30 30 60 60 e0 00 00 00     .....`p000``....
+     4a4:	00 80 80 80 00 00 00 00 00 e0 f0 30 30 30 00 e0     ...........000..
+     4b4:	f0 30 30 30 00 00 00 80 80 80 80 00 00 00 00 00     .000............
+     4c4:	00 00 80 80 80 00 00 00 00 00 00 00 00 00 00 00     ................
+     4d4:	00 80 c0 e0 e0 00 00 00 00 00 00 00 00 00 00 00     ................
+     4e4:	00 c0 e0 60 30 30 30 60 e0 80 00 00 00 00 00 00     ...`000`........
+	...
+     534:	00 00 01 07 3f fe fc e1 81 03 03 03 07 07 07 07     ....?...........
+     544:	0f 0f 0f 0f 0f 1f 1f 1f 1f 1f 1f 1f 1f 3f 3f 3f     .............???
+     554:	3f 3f 3f 3f 3f 3f 3f 3f 1f 1f 1f 1f 1f 1f 1f 1f     ????????........
+     564:	0f 0f 0f 0f 0f 07 07 07 03 03 03 01 81 e1 f8 f8     ................
+     574:	00 00 00 00 00 80 c0 f0 fc ff ff ff 3f 07 00 00     ............?...
+	...
+     590:	00 00 7f ff c0 80 80 00 00 00 80 80 c0 00 fe ff     ................
+     5a0:	83 01 01 83 c7 fe 7c 00 03 ff ff 03 03 03 03 ff     ......|.........
+     5b0:	ff 03 03 03 7c fe df 9b 19 19 1b 9f 9e 00 00 fe     ....|...........
+     5c0:	ff 9b 99 19 1b 9f 9f 9c 00 00 00 00 00 00 00 00     ................
+     5d0:	00 01 01 ff ff 00 00 00 00 00 00 80 80 80 00 00     ................
+     5e0:	00 ff ff 80 00 00 00 80 ff ff 00 00 00 00 00 00     ................
+	...
+     634:	00 1f ff ff ff f8 80 00 00 00 00 00 00 00 00 00     ................
+	...
+     668:	80 e0 f8 fe ff cf e3 f0 f8 fc fe fe 7f 3f 1f 0f     .............?..
+     678:	07 03 01 00 00 00 00 00 00 00 00 00 00 00 00 00     ................
+	...
+     690:	01 01 03 03 03 03 01 01 01 00 00 01 01 03 03 03     ................
+     6a0:	01 00 00 00 00 03 03 00 00 00 00 03 03 00 00 00     ................
+     6b0:	00 00 01 03 03 03 03 03 01 00 00 00 01 01 03 03     ................
+     6c0:	03 03 01 01 00 00 00 00 00 00 00 00 00 03 03 03     ................
+     6d0:	03 03 03 03 00 00 00 03 03 03 00 00 00 00 01 01     ................
+     6e0:	03 03 03 01 01 00 00 00 00 00 00 00 00 00 00 00     ................
+	...
+     720:	c0 e0 e0 70 70 38 38 38 1c 1c 1c 0c 0c 0c 0c 00     ...pp888........
+     730:	00 00 03 3f ff ff ff fc f0 c0 80 80 00 00 00 00     ...?............
+	...
+     75c:	00 00 00 80 c0 f0 f8 fe ff ff 7f 7f 3f 1f 6f 6f     ............?.oo
+     76c:	67 63 c1 c0 c0 c0 c0 80 80 00 00 00 00 00 00 00     gc..............
+	...
+     818:	00 00 00 1f ff ff f0 c0 80 00 00 00 00 00 00 00     ................
+	...
+     830:	00 03 0f 1f 3f 7f ff ff ff fe fe fc fc f8 f8 f8     ....?...........
+     840:	f0 f0 f0 f0 e0 e0 e0 e0 e0 e0 c0 c0 c0 c0 c0 c0     ................
+     850:	c0 e0 e0 e0 f0 f0 f8 fc fc fe ff ff ff ff ff ff     ................
+     860:	ff fc fe fe fe fe fe fe fe ff ff ff ff ff ff ff     ................
+     870:	ff ff ff fe fc f8 f0 e0 c0 00 00 00 00 00 00 00     ................
+	...
+     918:	00 01 03 07 0f 1e 3c 7c 78 f0 f0 e0 e0 c0 c0 80     ......<|x.......
+     928:	80 00 00 00 00 00 00 00 00 00 00 01 01 03 03 03     ................
+     938:	07 07 0f 0f 0f 0f 1f 1f 1f 1f 1f 3f 3f 3f 3f 3f     ...........?????
+     948:	3f 3f 3f 3f 3f 3f 3f 3f 3f 7f 7f 7f 7f 7f 7f 3f     ?????????......?
+     958:	3f 3f 3f 3f 3f 3f 3f 3f 3f 1f 1f 1f 1f 1f 1f 0f     ?????????.......
+     968:	0f 0f 0f 0f 07 07 07 07 07 07 07 07 03 00 00 00     ................
+	...
+     98c:	00 f0 38 08 c0 e0 20 20 60 08 38 f0 00 00 00 00     ..8...  `.8.....
+     99c:	10 18 98 f8 30 00 f0 18 18 f8 e0 00 30 f8 f8 00     ....0.......0...
+     9ac:	00 c0 e0 b0 f8 80 00 00 00 00 f8 e0 f0 38 18 e0     .............8..
+     9bc:	e0 a0 e0 e0 00 f8 00 f8 f8 80 a0 e0 e0 e0 00 e0     ................
+     9cc:	60 20 e0 e0 00 e0 60 20 e0 e0 20 20 e0 c0 e0 e0     ` ....` ..  ....
+     9dc:	00 e0 e0 00 e0 60 20 e0 c0 00 00 00 e0 f0 18 18     .....` .........
+     9ec:	d8 d8 d0 f8 f8 20 60 e0 00 f8 f8 d8 d8 70 00 00     ..... `......p..
+	...
+     a1c:	00 00 01 01 03 03 07 07 0f 0f 1f 1f 3e 3e 3e 7c     ............>>>|
+     a2c:	7c 7c 78 f8 f8 f8 f8 f8 f0 f0 f0 f0 f0 f0 f0 f0     ||x.............
+     a3c:	f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0     ................
+     a4c:	f0 f0 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 fc fc fc 7c     ...............|
+     a5c:	7c 7c 7c 7e 3e 3e 3e 3e 1e 1f 1f 0f 07 03 01 00     |||~>>>>........
+	...
+     a88:	00 07 0e 08 01 03 02 02 03 08 0e 07 00 00 00 00     ................
+     a98:	03 03 03 02 02 00 03 03 02 03 01 00 02 03 03 02     ................
+     aa8:	00 00 00 00 03 00 00 00 00 00 03 00 01 03 02 03     ................
+     ab8:	03 02 02 03 00 03 00 03 03 01 03 02 03 03 00 0b     ................
+     ac8:	0b 0a 0f 07 00 03 00 00 01 03 02 02 03 01 03 03     ................
+     ad8:	02 03 03 00 0f 02 02 03 01 00 00 00 00 03 03 02     ................
+     ae8:	02 03 03 03 03 02 03 03 00 03 03 00 01 03 02 00     ................
+	...
+     b2c:	00 00 00 01 01 01 01 01 01 01 03 03 03 03 03 03     ................
+     b3c:	03 03 03 03 03 03 03 03 03 03 03 00                 ............
+
+00000b48 <__ctors_end>:
+     b48:	11 24       	eor	r1, r1
+     b4a:	1f be       	out	0x3f, r1	; 63
+     b4c:	cf e5       	ldi	r28, 0x5F	; 95
+     b4e:	d8 e0       	ldi	r29, 0x08	; 8
+     b50:	de bf       	out	0x3e, r29	; 62
+     b52:	cd bf       	out	0x3d, r28	; 61
+
+00000b54 <__do_copy_data>:
+     b54:	10 e0       	ldi	r17, 0x00	; 0
+     b56:	a0 e6       	ldi	r26, 0x60	; 96
+     b58:	b0 e0       	ldi	r27, 0x00	; 0
+     b5a:	e2 eb       	ldi	r30, 0xB2	; 178
+     b5c:	f8 e1       	ldi	r31, 0x18	; 24
+     b5e:	02 c0       	rjmp	.+4      	; 0xb64 <__do_copy_data+0x10>
+     b60:	05 90       	lpm	r0, Z+
+     b62:	0d 92       	st	X+, r0
+     b64:	ae 3a       	cpi	r26, 0xAE	; 174
+     b66:	b1 07       	cpc	r27, r17
+     b68:	d9 f7       	brne	.-10     	; 0xb60 <__do_copy_data+0xc>
+
+00000b6a <__do_clear_bss>:
+     b6a:	20 e0       	ldi	r18, 0x00	; 0
+     b6c:	ae ea       	ldi	r26, 0xAE	; 174
+     b6e:	b0 e0       	ldi	r27, 0x00	; 0
+     b70:	01 c0       	rjmp	.+2      	; 0xb74 <.do_clear_bss_start>
+
+00000b72 <.do_clear_bss_loop>:
+     b72:	1d 92       	st	X+, r1
+
+00000b74 <.do_clear_bss_start>:
+     b74:	a2 3b       	cpi	r26, 0xB2	; 178
+     b76:	b2 07       	cpc	r27, r18
+     b78:	e1 f7       	brne	.-8      	; 0xb72 <.do_clear_bss_loop>
+     b7a:	0e 94 0e 06 	call	0xc1c	; 0xc1c <main>
+     b7e:	0c 94 57 0c 	jmp	0x18ae	; 0x18ae <_exit>
+
+00000b82 <__bad_interrupt>:
+     b82:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000b86 <__vector_10>:
+
+
+volatile uint16_t timeCounter1 = 0;
+volatile uint16_t timeCounter2 = 0;
+
+ISR(TIMER0_COMP_vect) {
+     b86:	1f 92       	push	r1
+     b88:	0f 92       	push	r0
+     b8a:	0f b6       	in	r0, 0x3f	; 63
+     b8c:	0f 92       	push	r0
+     b8e:	11 24       	eor	r1, r1
+     b90:	2f 93       	push	r18
+     b92:	8f 93       	push	r24
+     b94:	9f 93       	push	r25
+	PORTA ^= (1 << 1);
+     b96:	9b b3       	in	r25, 0x1b	; 27
+     b98:	82 e0       	ldi	r24, 0x02	; 2
+     b9a:	89 27       	eor	r24, r25
+     b9c:	8b bb       	out	0x1b, r24	; 27
+	
+	timeCounter1 ++;
+     b9e:	80 91 b0 00 	lds	r24, 0x00B0
+     ba2:	90 91 b1 00 	lds	r25, 0x00B1
+     ba6:	01 96       	adiw	r24, 0x01	; 1
+     ba8:	90 93 b1 00 	sts	0x00B1, r25
+     bac:	80 93 b0 00 	sts	0x00B0, r24
+	if(timeCounter1 >= 10000) {
+     bb0:	80 91 b0 00 	lds	r24, 0x00B0
+     bb4:	90 91 b1 00 	lds	r25, 0x00B1
+     bb8:	80 31       	cpi	r24, 0x10	; 16
+     bba:	97 42       	sbci	r25, 0x27	; 39
+     bbc:	d8 f0       	brcs	.+54     	; 0xbf4 <__vector_10+0x6e>
+		timeCounter2 ++;
+     bbe:	80 91 ae 00 	lds	r24, 0x00AE
+     bc2:	90 91 af 00 	lds	r25, 0x00AF
+     bc6:	01 96       	adiw	r24, 0x01	; 1
+     bc8:	90 93 af 00 	sts	0x00AF, r25
+     bcc:	80 93 ae 00 	sts	0x00AE, r24
+		if(timeCounter2 >= 10) {
+     bd0:	80 91 ae 00 	lds	r24, 0x00AE
+     bd4:	90 91 af 00 	lds	r25, 0x00AF
+     bd8:	0a 97       	sbiw	r24, 0x0a	; 10
+     bda:	40 f0       	brcs	.+16     	; 0xbec <__vector_10+0x66>
+			PORTA ^= (1 << 0);
+     bdc:	9b b3       	in	r25, 0x1b	; 27
+     bde:	81 e0       	ldi	r24, 0x01	; 1
+     be0:	89 27       	eor	r24, r25
+     be2:	8b bb       	out	0x1b, r24	; 27
+			timeCounter2 = 0;
+     be4:	10 92 af 00 	sts	0x00AF, r1
+     be8:	10 92 ae 00 	sts	0x00AE, r1
+		}
+		timeCounter1 = 0;
+     bec:	10 92 b1 00 	sts	0x00B1, r1
+     bf0:	10 92 b0 00 	sts	0x00B0, r1
+	}
+}
+     bf4:	9f 91       	pop	r25
+     bf6:	8f 91       	pop	r24
+     bf8:	2f 91       	pop	r18
+     bfa:	0f 90       	pop	r0
+     bfc:	0f be       	out	0x3f, r0	; 63
+     bfe:	0f 90       	pop	r0
+     c00:	1f 90       	pop	r1
+     c02:	18 95       	reti
+
+00000c04 <initTimer>:
+
+void initTimer(void) {
+	// disable the interrupt
+	TIMSK &= ~(1 << OCIE0);
+     c04:	89 b7       	in	r24, 0x39	; 57
+     c06:	8d 7f       	andi	r24, 0xFD	; 253
+     c08:	89 bf       	out	0x39, r24	; 57
+	
+	// TCCR0: FOC0 WGM00 COM01 COM00 WGM01 CS02 CS01 CS00
+	TCCR0 = 0b00001001; // prescaler: 1
+     c0a:	89 e0       	ldi	r24, 0x09	; 9
+     c0c:	83 bf       	out	0x33, r24	; 51
+	
+	// reset the counter
+	TCNT0 = 0x00;
+     c0e:	12 be       	out	0x32, r1	; 50
+	
+	// set the comparator: 16MHz / (16000000 / 200000) = 16MHz / 80 = 200kHz = 5µs
+	OCR0  = F_CPU / 200000;
+     c10:	85 e0       	ldi	r24, 0x05	; 5
+     c12:	8c bf       	out	0x3c, r24	; 60
+	
+	// enable the interrupt
+	TIMSK |= (1 << OCIE0);
+     c14:	89 b7       	in	r24, 0x39	; 57
+     c16:	82 60       	ori	r24, 0x02	; 2
+     c18:	89 bf       	out	0x39, r24	; 57
+     c1a:	08 95       	ret
+
+00000c1c <main>:
+uint8_t shaderProgram2(uint8_t x, uint8_t y, uint8_t value, void* additionalData) {
+	return !value;
+}
+
+int main(void) {
+	DDRA  = 0b00000011;
+     c1c:	83 e0       	ldi	r24, 0x03	; 3
+     c1e:	8a bb       	out	0x1a, r24	; 26
+	PORTA = 0b00000001;
+     c20:	81 e0       	ldi	r24, 0x01	; 1
+     c22:	8b bb       	out	0x1b, r24	; 27
+	
+	sed1520Init();
+     c24:	0e 94 ef 07 	call	0xfde	; 0xfde <sed1520Init>
+	sed1520SetDisplayOnOff(1);
+     c28:	81 e0       	ldi	r24, 0x01	; 1
+     c2a:	0e 94 0b 08 	call	0x1016	; 0x1016 <sed1520SetDisplayOnOff>
+	
+	initTimer();
+     c2e:	0e 94 02 06 	call	0xc04	; 0xc04 <initTimer>
+	sei();
+     c32:	78 94       	sei
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+     c34:	87 ea       	ldi	r24, 0xA7	; 167
+     c36:	91 e6       	ldi	r25, 0x61	; 97
+     c38:	01 97       	sbiw	r24, 0x01	; 1
+     c3a:	f1 f7       	brne	.-4      	; 0xc38 <main+0x1c>
+     c3c:	00 c0       	rjmp	.+0      	; 0xc3e <main+0x22>
+     c3e:	00 00       	nop
+     c40:	87 ea       	ldi	r24, 0xA7	; 167
+     c42:	91 e6       	ldi	r25, 0x61	; 97
+     c44:	01 97       	sbiw	r24, 0x01	; 1
+     c46:	f1 f7       	brne	.-4      	; 0xc44 <main+0x28>
+     c48:	00 c0       	rjmp	.+0      	; 0xc4a <main+0x2e>
+     c4a:	00 00       	nop
+	
+	_delay_ms(100.0);
+	_delay_ms(100.0);
+	
+	sed1520ClearScreen();
+     c4c:	0e 94 ac 09 	call	0x1358	; 0x1358 <sed1520ClearScreen>
+	sed1520DrawText("drawing without shader", (uint8_t*) &fontData, SED1520_IMGMODE_TRANSPARENTWHITE, 0, 0, 0, 0);
+     c50:	c1 2c       	mov	r12, r1
+     c52:	e1 2c       	mov	r14, r1
+     c54:	00 e0       	ldi	r16, 0x00	; 0
+     c56:	10 e0       	ldi	r17, 0x00	; 0
+     c58:	20 e0       	ldi	r18, 0x00	; 0
+     c5a:	30 e0       	ldi	r19, 0x00	; 0
+     c5c:	44 e0       	ldi	r20, 0x04	; 4
+     c5e:	64 e5       	ldi	r22, 0x54	; 84
+     c60:	70 e0       	ldi	r23, 0x00	; 0
+     c62:	80 e6       	ldi	r24, 0x60	; 96
+     c64:	90 e0       	ldi	r25, 0x00	; 0
+     c66:	0e 94 65 0a 	call	0x14ca	; 0x14ca <sed1520DrawText>
+	for(uint8_t y = 12; y < 32; y ++) {
+     c6a:	dc e0       	ldi	r29, 0x0C	; 12
+
+uint8_t shaderProgram2(uint8_t x, uint8_t y, uint8_t value, void* additionalData) {
+	return !value;
+}
+
+int main(void) {
+     c6c:	10 e0       	ldi	r17, 0x00	; 0
+     c6e:	0b c0       	rjmp	.+22     	; 0xc86 <main+0x6a>
+	
+	sed1520ClearScreen();
+	sed1520DrawText("drawing without shader", (uint8_t*) &fontData, SED1520_IMGMODE_TRANSPARENTWHITE, 0, 0, 0, 0);
+	for(uint8_t y = 12; y < 32; y ++) {
+	  for(uint8_t x = 0; x < 122; x ++) {
+		sed1520SetPixel(x, y, 1);
+     c70:	41 e0       	ldi	r20, 0x01	; 1
+     c72:	6d 2f       	mov	r22, r29
+     c74:	8c 2f       	mov	r24, r28
+     c76:	0e 94 12 08 	call	0x1024	; 0x1024 <sed1520SetPixel>
+	_delay_ms(100.0);
+	
+	sed1520ClearScreen();
+	sed1520DrawText("drawing without shader", (uint8_t*) &fontData, SED1520_IMGMODE_TRANSPARENTWHITE, 0, 0, 0, 0);
+	for(uint8_t y = 12; y < 32; y ++) {
+	  for(uint8_t x = 0; x < 122; x ++) {
+     c7a:	cf 5f       	subi	r28, 0xFF	; 255
+     c7c:	ca 37       	cpi	r28, 0x7A	; 122
+     c7e:	c1 f7       	brne	.-16     	; 0xc70 <main+0x54>
+	_delay_ms(100.0);
+	_delay_ms(100.0);
+	
+	sed1520ClearScreen();
+	sed1520DrawText("drawing without shader", (uint8_t*) &fontData, SED1520_IMGMODE_TRANSPARENTWHITE, 0, 0, 0, 0);
+	for(uint8_t y = 12; y < 32; y ++) {
+     c80:	df 5f       	subi	r29, 0xFF	; 255
+     c82:	d0 32       	cpi	r29, 0x20	; 32
+     c84:	11 f0       	breq	.+4      	; 0xc8a <main+0x6e>
+
+uint8_t shaderProgram2(uint8_t x, uint8_t y, uint8_t value, void* additionalData) {
+	return !value;
+}
+
+int main(void) {
+     c86:	c1 2f       	mov	r28, r17
+     c88:	f3 cf       	rjmp	.-26     	; 0xc70 <main+0x54>
+     c8a:	87 ea       	ldi	r24, 0xA7	; 167
+     c8c:	91 e6       	ldi	r25, 0x61	; 97
+     c8e:	01 97       	sbiw	r24, 0x01	; 1
+     c90:	f1 f7       	brne	.-4      	; 0xc8e <main+0x72>
+     c92:	00 c0       	rjmp	.+0      	; 0xc94 <main+0x78>
+     c94:	00 00       	nop
+	  }
+	}
+	
+	_delay_ms(100.0);
+	
+	sed1520ClearScreen();
+     c96:	0e 94 ac 09 	call	0x1358	; 0x1358 <sed1520ClearScreen>
+	sed1520DrawText("drawing with shader", (uint8_t*) &fontData, SED1520_IMGMODE_TRANSPARENTWHITE, 0, 0, 0, 0);
+     c9a:	c1 2c       	mov	r12, r1
+     c9c:	e1 2c       	mov	r14, r1
+     c9e:	00 e0       	ldi	r16, 0x00	; 0
+     ca0:	10 e0       	ldi	r17, 0x00	; 0
+     ca2:	20 e0       	ldi	r18, 0x00	; 0
+     ca4:	30 e0       	ldi	r19, 0x00	; 0
+     ca6:	44 e0       	ldi	r20, 0x04	; 4
+     ca8:	64 e5       	ldi	r22, 0x54	; 84
+     caa:	70 e0       	ldi	r23, 0x00	; 0
+     cac:	87 e7       	ldi	r24, 0x77	; 119
+     cae:	90 e0       	ldi	r25, 0x00	; 0
+     cb0:	0e 94 65 0a 	call	0x14ca	; 0x14ca <sed1520DrawText>
+	sed1520DrawBox(0, 12, 122, 20, 1, 1);
+     cb4:	ee 24       	eor	r14, r14
+     cb6:	e3 94       	inc	r14
+     cb8:	01 e0       	ldi	r16, 0x01	; 1
+     cba:	24 e1       	ldi	r18, 0x14	; 20
+     cbc:	4a e7       	ldi	r20, 0x7A	; 122
+     cbe:	6c e0       	ldi	r22, 0x0C	; 12
+     cc0:	80 e0       	ldi	r24, 0x00	; 0
+     cc2:	0e 94 d7 0b 	call	0x17ae	; 0x17ae <sed1520DrawBox>
+     cc6:	87 ea       	ldi	r24, 0xA7	; 167
+     cc8:	91 e6       	ldi	r25, 0x61	; 97
+     cca:	01 97       	sbiw	r24, 0x01	; 1
+     ccc:	f1 f7       	brne	.-4      	; 0xcca <main+0xae>
+     cce:	00 c0       	rjmp	.+0      	; 0xcd0 <main+0xb4>
+     cd0:	00 00       	nop
+	
+	_delay_ms(100.0);
+	
+	sed1520ClearScreen();
+     cd2:	0e 94 ac 09 	call	0x1358	; 0x1358 <sed1520ClearScreen>
+	
+	sed1520DrawImage((uint8_t*) &imageData, SED1520_IMGMODE_NORMAL, 0, 0, 0, 0, 0, 0);
+     cd6:	a1 2c       	mov	r10, r1
+     cd8:	e1 2c       	mov	r14, r1
+     cda:	00 e0       	ldi	r16, 0x00	; 0
+     cdc:	20 e0       	ldi	r18, 0x00	; 0
+     cde:	30 e0       	ldi	r19, 0x00	; 0
+     ce0:	40 e0       	ldi	r20, 0x00	; 0
+     ce2:	50 e0       	ldi	r21, 0x00	; 0
+     ce4:	60 e0       	ldi	r22, 0x00	; 0
+     ce6:	88 e2       	ldi	r24, 0x28	; 40
+     ce8:	93 e0       	ldi	r25, 0x03	; 3
+     cea:	0e 94 ce 09 	call	0x139c	; 0x139c <sed1520DrawImage>
+     cee:	87 ea       	ldi	r24, 0xA7	; 167
+     cf0:	91 e6       	ldi	r25, 0x61	; 97
+     cf2:	01 97       	sbiw	r24, 0x01	; 1
+     cf4:	f1 f7       	brne	.-4      	; 0xcf2 <main+0xd6>
+     cf6:	00 c0       	rjmp	.+0      	; 0xcf8 <main+0xdc>
+     cf8:	00 00       	nop
+	
+	_delay_ms(100.0);
+	
+	sed1520DrawImage((uint8_t*) &imageData, SED1520_IMGMODE_INVERTEDCOLORS, 0, 0, 0, 0, 0, 0);
+     cfa:	20 e0       	ldi	r18, 0x00	; 0
+     cfc:	30 e0       	ldi	r19, 0x00	; 0
+     cfe:	40 e0       	ldi	r20, 0x00	; 0
+     d00:	50 e0       	ldi	r21, 0x00	; 0
+     d02:	61 e0       	ldi	r22, 0x01	; 1
+     d04:	88 e2       	ldi	r24, 0x28	; 40
+     d06:	93 e0       	ldi	r25, 0x03	; 3
+     d08:	0e 94 ce 09 	call	0x139c	; 0x139c <sed1520DrawImage>
+     d0c:	87 ea       	ldi	r24, 0xA7	; 167
+     d0e:	91 e6       	ldi	r25, 0x61	; 97
+     d10:	01 97       	sbiw	r24, 0x01	; 1
+     d12:	f1 f7       	brne	.-4      	; 0xd10 <main+0xf4>
+     d14:	00 c0       	rjmp	.+0      	; 0xd16 <main+0xfa>
+     d16:	00 00       	nop
+	
+	_delay_ms(100.0);
+	
+	sed1520ClearScreen();
+     d18:	0e 94 ac 09 	call	0x1358	; 0x1358 <sed1520ClearScreen>
+	sed1520DrawImage((uint8_t*) &imageData, SED1520_IMGMODE_NORMAL, 0, 0, 0, 0, 0, 0);
+     d1c:	20 e0       	ldi	r18, 0x00	; 0
+     d1e:	30 e0       	ldi	r19, 0x00	; 0
+     d20:	40 e0       	ldi	r20, 0x00	; 0
+     d22:	50 e0       	ldi	r21, 0x00	; 0
+     d24:	60 e0       	ldi	r22, 0x00	; 0
+     d26:	88 e2       	ldi	r24, 0x28	; 40
+     d28:	93 e0       	ldi	r25, 0x03	; 3
+     d2a:	0e 94 ce 09 	call	0x139c	; 0x139c <sed1520DrawImage>
+     d2e:	87 ea       	ldi	r24, 0xA7	; 167
+     d30:	91 e6       	ldi	r25, 0x61	; 97
+     d32:	01 97       	sbiw	r24, 0x01	; 1
+     d34:	f1 f7       	brne	.-4      	; 0xd32 <main+0x116>
+     d36:	00 c0       	rjmp	.+0      	; 0xd38 <main+0x11c>
+     d38:	00 00       	nop
+	
+	_delay_ms(100.0);
+	
+	sed1520DrawImage((uint8_t*) &imageData, SED1520_IMGMODE_TRANSPARENTWHITE, -2, -3, 0, 0, 0, 0);
+     d3a:	2d ef       	ldi	r18, 0xFD	; 253
+     d3c:	3f ef       	ldi	r19, 0xFF	; 255
+     d3e:	4e ef       	ldi	r20, 0xFE	; 254
+     d40:	5f ef       	ldi	r21, 0xFF	; 255
+     d42:	64 e0       	ldi	r22, 0x04	; 4
+     d44:	88 e2       	ldi	r24, 0x28	; 40
+     d46:	93 e0       	ldi	r25, 0x03	; 3
+     d48:	0e 94 ce 09 	call	0x139c	; 0x139c <sed1520DrawImage>
+     d4c:	87 ea       	ldi	r24, 0xA7	; 167
+     d4e:	91 e6       	ldi	r25, 0x61	; 97
+     d50:	01 97       	sbiw	r24, 0x01	; 1
+     d52:	f1 f7       	brne	.-4      	; 0xd50 <main+0x134>
+     d54:	00 c0       	rjmp	.+0      	; 0xd56 <main+0x13a>
+     d56:	00 00       	nop
+	
+	_delay_ms(100.0);
+	
+	sed1520DrawImage((uint8_t*) &imageData, SED1520_IMGMODE_TRANSPARENTBLACK, 0, 0, 0, 0, 0, 0);
+     d58:	20 e0       	ldi	r18, 0x00	; 0
+     d5a:	30 e0       	ldi	r19, 0x00	; 0
+     d5c:	40 e0       	ldi	r20, 0x00	; 0
+     d5e:	50 e0       	ldi	r21, 0x00	; 0
+     d60:	62 e0       	ldi	r22, 0x02	; 2
+     d62:	88 e2       	ldi	r24, 0x28	; 40
+     d64:	93 e0       	ldi	r25, 0x03	; 3
+     d66:	0e 94 ce 09 	call	0x139c	; 0x139c <sed1520DrawImage>
+     d6a:	87 ea       	ldi	r24, 0xA7	; 167
+     d6c:	91 e6       	ldi	r25, 0x61	; 97
+     d6e:	01 97       	sbiw	r24, 0x01	; 1
+     d70:	f1 f7       	brne	.-4      	; 0xd6e <main+0x152>
+     d72:	00 c0       	rjmp	.+0      	; 0xd74 <main+0x158>
+     d74:	00 00       	nop
+	
+	_delay_ms(100.0);
+	
+	sed1520ClearScreen();
+     d76:	0e 94 ac 09 	call	0x1358	; 0x1358 <sed1520ClearScreen>
+	
+	sed1520DrawBox(1, 1, 5, 5, 1, 1);
+     d7a:	ee 24       	eor	r14, r14
+     d7c:	e3 94       	inc	r14
+     d7e:	01 e0       	ldi	r16, 0x01	; 1
+     d80:	25 e0       	ldi	r18, 0x05	; 5
+     d82:	45 e0       	ldi	r20, 0x05	; 5
+     d84:	61 e0       	ldi	r22, 0x01	; 1
+     d86:	81 e0       	ldi	r24, 0x01	; 1
+     d88:	0e 94 d7 0b 	call	0x17ae	; 0x17ae <sed1520DrawBox>
+	sed1520DrawBox(10, 0, 100, 32, 0, 1);
+     d8c:	00 e0       	ldi	r16, 0x00	; 0
+     d8e:	20 e2       	ldi	r18, 0x20	; 32
+     d90:	44 e6       	ldi	r20, 0x64	; 100
+     d92:	60 e0       	ldi	r22, 0x00	; 0
+     d94:	8a e0       	ldi	r24, 0x0A	; 10
+     d96:	0e 94 d7 0b 	call	0x17ae	; 0x17ae <sed1520DrawBox>
+	sed1520DrawLine(110, 32, 10, 2, 1);
+     d9a:	01 e0       	ldi	r16, 0x01	; 1
+     d9c:	22 e0       	ldi	r18, 0x02	; 2
+     d9e:	4a e0       	ldi	r20, 0x0A	; 10
+     da0:	60 e2       	ldi	r22, 0x20	; 32
+     da2:	8e e6       	ldi	r24, 0x6E	; 110
+     da4:	0e 94 2e 0b 	call	0x165c	; 0x165c <sed1520DrawLine>
+	sed1520DrawLine(60, 0, 60, 20, 1);
+     da8:	24 e1       	ldi	r18, 0x14	; 20
+     daa:	4c e3       	ldi	r20, 0x3C	; 60
+     dac:	60 e0       	ldi	r22, 0x00	; 0
+     dae:	8c e3       	ldi	r24, 0x3C	; 60
+     db0:	0e 94 2e 0b 	call	0x165c	; 0x165c <sed1520DrawLine>
+	sed1520DrawLine(60, 0, 70, 31, 1);
+     db4:	2f e1       	ldi	r18, 0x1F	; 31
+     db6:	46 e4       	ldi	r20, 0x46	; 70
+     db8:	60 e0       	ldi	r22, 0x00	; 0
+     dba:	8c e3       	ldi	r24, 0x3C	; 60
+     dbc:	0e 94 2e 0b 	call	0x165c	; 0x165c <sed1520DrawLine>
+     dc0:	87 ea       	ldi	r24, 0xA7	; 167
+     dc2:	91 e6       	ldi	r25, 0x61	; 97
+     dc4:	01 97       	sbiw	r24, 0x01	; 1
+     dc6:	f1 f7       	brne	.-4      	; 0xdc4 <main+0x1a8>
+     dc8:	00 c0       	rjmp	.+0      	; 0xdca <main+0x1ae>
+     dca:	00 00       	nop
+	uint8_t clipWidth  = 40;
+	uint8_t clipHeight = 20;
+	
+	_delay_ms(100.0);
+	
+	sed1520ClearScreen();
+     dcc:	0e 94 ac 09 	call	0x1358	; 0x1358 <sed1520ClearScreen>
+	
+	sed1520DrawText("Imageclipping and\nmultiline test!", (uint8_t*) &fontData, SED1520_IMGMODE_TRANSPARENTWHITE, 50, 0, 0, 0);
+     dd0:	e1 2c       	mov	r14, r1
+     dd2:	00 e0       	ldi	r16, 0x00	; 0
+     dd4:	10 e0       	ldi	r17, 0x00	; 0
+     dd6:	22 e3       	ldi	r18, 0x32	; 50
+     dd8:	30 e0       	ldi	r19, 0x00	; 0
+     dda:	44 e0       	ldi	r20, 0x04	; 4
+     ddc:	64 e5       	ldi	r22, 0x54	; 84
+     dde:	70 e0       	ldi	r23, 0x00	; 0
+     de0:	8b e8       	ldi	r24, 0x8B	; 139
+     de2:	90 e0       	ldi	r25, 0x00	; 0
+     de4:	0e 94 65 0a 	call	0x14ca	; 0x14ca <sed1520DrawText>
+     de8:	87 ea       	ldi	r24, 0xA7	; 167
+     dea:	91 e6       	ldi	r25, 0x61	; 97
+     dec:	01 97       	sbiw	r24, 0x01	; 1
+     dee:	f1 f7       	brne	.-4      	; 0xdec <main+0x1d0>
+     df0:	00 c0       	rjmp	.+0      	; 0xdf2 <main+0x1d6>
+     df2:	00 00       	nop
+	
+	while(1) {
+		_delay_ms(100.0);
+		
+		sed1520DrawBox(0, 10, clipWidth + 2, clipHeight + 2, 0, 1);
+     df4:	ee 24       	eor	r14, r14
+     df6:	e3 94       	inc	r14
+     df8:	26 e1       	ldi	r18, 0x16	; 22
+     dfa:	4a e2       	ldi	r20, 0x2A	; 42
+     dfc:	6a e0       	ldi	r22, 0x0A	; 10
+     dfe:	80 e0       	ldi	r24, 0x00	; 0
+     e00:	0e 94 d7 0b 	call	0x17ae	; 0x17ae <sed1520DrawBox>
+		sed1520DrawImage((uint8_t*) &imageData, SED1520_IMGMODE_NORMAL, 1, 11, clipX, clipY, clipWidth, clipHeight);
+     e04:	0f 2e       	mov	r0, r31
+     e06:	f4 e1       	ldi	r31, 0x14	; 20
+     e08:	af 2e       	mov	r10, r31
+     e0a:	f0 2d       	mov	r31, r0
+     e0c:	0f 2e       	mov	r0, r31
+     e0e:	f8 e2       	ldi	r31, 0x28	; 40
+     e10:	cf 2e       	mov	r12, r31
+     e12:	f0 2d       	mov	r31, r0
+     e14:	0f 2e       	mov	r0, r31
+     e16:	f5 e0       	ldi	r31, 0x05	; 5
+     e18:	ef 2e       	mov	r14, r31
+     e1a:	f0 2d       	mov	r31, r0
+     e1c:	0a e0       	ldi	r16, 0x0A	; 10
+     e1e:	2b e0       	ldi	r18, 0x0B	; 11
+     e20:	30 e0       	ldi	r19, 0x00	; 0
+     e22:	41 e0       	ldi	r20, 0x01	; 1
+     e24:	50 e0       	ldi	r21, 0x00	; 0
+     e26:	60 e0       	ldi	r22, 0x00	; 0
+     e28:	88 e2       	ldi	r24, 0x28	; 40
+     e2a:	93 e0       	ldi	r25, 0x03	; 3
+     e2c:	0e 94 ce 09 	call	0x139c	; 0x139c <sed1520DrawImage>
+		
+		clipX += speedX;
+		clipY += speedY;
+     e30:	20 e0       	ldi	r18, 0x00	; 0
+     e32:	4b ef       	ldi	r20, 0xFB	; 251
+	sed1520DrawLine(60, 0, 70, 31, 1);
+	
+	int8_t speedX      = 12;
+	int8_t speedY      = -5;
+	uint8_t clipX      = 10;
+	uint8_t clipY      = 5;
+     e34:	15 e0       	ldi	r17, 0x05	; 5
+	sed1520DrawLine(110, 32, 10, 2, 1);
+	sed1520DrawLine(60, 0, 60, 20, 1);
+	sed1520DrawLine(60, 0, 70, 31, 1);
+	
+	int8_t speedX      = 12;
+	int8_t speedY      = -5;
+     e36:	db ef       	ldi	r29, 0xFB	; 251
+		_delay_ms(100.0);
+		
+		sed1520DrawBox(0, 10, clipWidth + 2, clipHeight + 2, 0, 1);
+		sed1520DrawImage((uint8_t*) &imageData, SED1520_IMGMODE_NORMAL, 1, 11, clipX, clipY, clipWidth, clipHeight);
+		
+		clipX += speedX;
+     e38:	c6 e1       	ldi	r28, 0x16	; 22
+	sed1520DrawBox(10, 0, 100, 32, 0, 1);
+	sed1520DrawLine(110, 32, 10, 2, 1);
+	sed1520DrawLine(60, 0, 60, 20, 1);
+	sed1520DrawLine(60, 0, 70, 31, 1);
+	
+	int8_t speedX      = 12;
+     e3a:	0f 2e       	mov	r0, r31
+     e3c:	fc e0       	ldi	r31, 0x0C	; 12
+     e3e:	ff 2e       	mov	r15, r31
+     e40:	f0 2d       	mov	r31, r0
+     e42:	31 c0       	rjmp	.+98     	; 0xea6 <main+0x28a>
+     e44:	12 2f       	mov	r17, r18
+     e46:	87 ea       	ldi	r24, 0xA7	; 167
+     e48:	91 e6       	ldi	r25, 0x61	; 97
+     e4a:	01 97       	sbiw	r24, 0x01	; 1
+     e4c:	f1 f7       	brne	.-4      	; 0xe4a <main+0x22e>
+     e4e:	00 c0       	rjmp	.+0      	; 0xe50 <main+0x234>
+     e50:	00 00       	nop
+	sed1520DrawText("Imageclipping and\nmultiline test!", (uint8_t*) &fontData, SED1520_IMGMODE_TRANSPARENTWHITE, 50, 0, 0, 0);
+	
+	while(1) {
+		_delay_ms(100.0);
+		
+		sed1520DrawBox(0, 10, clipWidth + 2, clipHeight + 2, 0, 1);
+     e52:	ee 24       	eor	r14, r14
+     e54:	e3 94       	inc	r14
+     e56:	00 e0       	ldi	r16, 0x00	; 0
+     e58:	26 e1       	ldi	r18, 0x16	; 22
+     e5a:	4a e2       	ldi	r20, 0x2A	; 42
+     e5c:	6a e0       	ldi	r22, 0x0A	; 10
+     e5e:	80 e0       	ldi	r24, 0x00	; 0
+     e60:	0e 94 d7 0b 	call	0x17ae	; 0x17ae <sed1520DrawBox>
+		sed1520DrawImage((uint8_t*) &imageData, SED1520_IMGMODE_NORMAL, 1, 11, clipX, clipY, clipWidth, clipHeight);
+     e64:	0f 2e       	mov	r0, r31
+     e66:	f4 e1       	ldi	r31, 0x14	; 20
+     e68:	af 2e       	mov	r10, r31
+     e6a:	f0 2d       	mov	r31, r0
+     e6c:	0f 2e       	mov	r0, r31
+     e6e:	f8 e2       	ldi	r31, 0x28	; 40
+     e70:	cf 2e       	mov	r12, r31
+     e72:	f0 2d       	mov	r31, r0
+     e74:	e1 2e       	mov	r14, r17
+     e76:	0c 2f       	mov	r16, r28
+     e78:	2b e0       	ldi	r18, 0x0B	; 11
+     e7a:	30 e0       	ldi	r19, 0x00	; 0
+     e7c:	41 e0       	ldi	r20, 0x01	; 1
+     e7e:	50 e0       	ldi	r21, 0x00	; 0
+     e80:	60 e0       	ldi	r22, 0x00	; 0
+     e82:	88 e2       	ldi	r24, 0x28	; 40
+     e84:	93 e0       	ldi	r25, 0x03	; 3
+     e86:	0e 94 ce 09 	call	0x139c	; 0x139c <sed1520DrawImage>
+		
+		clipX += speedX;
+     e8a:	3f 2d       	mov	r19, r15
+     e8c:	3c 0f       	add	r19, r28
+		clipY += speedY;
+     e8e:	4d 2f       	mov	r20, r29
+     e90:	2d 2f       	mov	r18, r29
+     e92:	21 0f       	add	r18, r17
+		
+		if(clipX + clipWidth > 122) {
+     e94:	83 2f       	mov	r24, r19
+     e96:	90 e0       	ldi	r25, 0x00	; 0
+     e98:	88 96       	adiw	r24, 0x28	; 40
+     e9a:	8b 37       	cpi	r24, 0x7B	; 123
+     e9c:	91 05       	cpc	r25, r1
+     e9e:	14 f0       	brlt	.+4      	; 0xea4 <main+0x288>
+			speedX *= -1;
+     ea0:	f1 94       	neg	r15
+     ea2:	01 c0       	rjmp	.+2      	; 0xea6 <main+0x28a>
+		_delay_ms(100.0);
+		
+		sed1520DrawBox(0, 10, clipWidth + 2, clipHeight + 2, 0, 1);
+		sed1520DrawImage((uint8_t*) &imageData, SED1520_IMGMODE_NORMAL, 1, 11, clipX, clipY, clipWidth, clipHeight);
+		
+		clipX += speedX;
+     ea4:	c3 2f       	mov	r28, r19
+		
+		if(clipX + clipWidth > 122) {
+			speedX *= -1;
+			clipX += speedX;
+		}
+		if(clipY + clipHeight > 32) {
+     ea6:	82 2f       	mov	r24, r18
+     ea8:	90 e0       	ldi	r25, 0x00	; 0
+     eaa:	44 96       	adiw	r24, 0x14	; 20
+     eac:	81 97       	sbiw	r24, 0x21	; 33
+     eae:	54 f2       	brlt	.-108    	; 0xe44 <main+0x228>
+			speedY *= -1;
+     eb0:	d4 2f       	mov	r29, r20
+     eb2:	d1 95       	neg	r29
+     eb4:	c8 cf       	rjmp	.-112    	; 0xe46 <main+0x22a>
+
+00000eb6 <sed1520DrawImageShader>:
+			sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE | SED1520_CMDMODE_DATA, SED1520_CMD_WRITEDISPLAYDATA, 0x00, SED1520_CS1 | SED1520_CS2);
+		}
+	}
+}
+
+uint8_t sed1520DrawImageShader(uint8_t x, uint8_t y, uint8_t value, SED1520IMAGE* img) {
+     eb6:	98 2f       	mov	r25, r24
+     eb8:	d9 01       	movw	r26, r18
+	uint8_t screenX = x;
+	
+	x -= img->x;
+     eba:	8c 91       	ld	r24, X
+     ebc:	29 2f       	mov	r18, r25
+     ebe:	28 1b       	sub	r18, r24
+     ec0:	82 2f       	mov	r24, r18
+	y -= img->y;
+     ec2:	11 96       	adiw	r26, 0x01	; 1
+     ec4:	2c 91       	ld	r18, X
+     ec6:	11 97       	sbiw	r26, 0x01	; 1
+     ec8:	62 1b       	sub	r22, r18
+	
+	uint16_t arrayPos = (uint16_t) x + (uint16_t) y * (uint16_t) img->width;
+     eca:	12 96       	adiw	r26, 0x02	; 2
+     ecc:	ed 91       	ld	r30, X+
+     ece:	fc 91       	ld	r31, X
+     ed0:	13 97       	sbiw	r26, 0x03	; 3
+     ed2:	6e 9f       	mul	r22, r30
+     ed4:	90 01       	movw	r18, r0
+     ed6:	6f 9f       	mul	r22, r31
+     ed8:	30 0d       	add	r19, r0
+     eda:	11 24       	eor	r1, r1
+     edc:	28 0f       	add	r18, r24
+     ede:	31 1d       	adc	r19, r1
+	uint8_t result = ((uint8_t) pgm_read_byte(img->imgData + arrayPos / 8) >> (arrayPos % 8)) & 0x01;
+     ee0:	b9 01       	movw	r22, r18
+     ee2:	76 95       	lsr	r23
+     ee4:	67 95       	ror	r22
+     ee6:	76 95       	lsr	r23
+     ee8:	67 95       	ror	r22
+     eea:	76 95       	lsr	r23
+     eec:	67 95       	ror	r22
+     eee:	16 96       	adiw	r26, 0x06	; 6
+     ef0:	ed 91       	ld	r30, X+
+     ef2:	fc 91       	ld	r31, X
+     ef4:	17 97       	sbiw	r26, 0x07	; 7
+     ef6:	e6 0f       	add	r30, r22
+     ef8:	f7 1f       	adc	r31, r23
+     efa:	e4 91       	lpm	r30, Z
+     efc:	f0 e0       	ldi	r31, 0x00	; 0
+     efe:	27 70       	andi	r18, 0x07	; 7
+     f00:	33 27       	eor	r19, r19
+     f02:	bf 01       	movw	r22, r30
+     f04:	02 c0       	rjmp	.+4      	; 0xf0a <sed1520DrawImageShader+0x54>
+     f06:	75 95       	asr	r23
+     f08:	67 95       	ror	r22
+     f0a:	2a 95       	dec	r18
+     f0c:	e2 f7       	brpl	.-8      	; 0xf06 <sed1520DrawImageShader+0x50>
+	
+	if(result != 0x00 && screenX > img->highestX) {
+     f0e:	86 2f       	mov	r24, r22
+     f10:	81 70       	andi	r24, 0x01	; 1
+     f12:	60 ff       	sbrs	r22, 0
+     f14:	0d c0       	rjmp	.+26     	; 0xf30 <sed1520DrawImageShader+0x7a>
+     f16:	29 2f       	mov	r18, r25
+     f18:	30 e0       	ldi	r19, 0x00	; 0
+     f1a:	18 96       	adiw	r26, 0x08	; 8
+     f1c:	6d 91       	ld	r22, X+
+     f1e:	7c 91       	ld	r23, X
+     f20:	19 97       	sbiw	r26, 0x09	; 9
+     f22:	62 17       	cp	r22, r18
+     f24:	73 07       	cpc	r23, r19
+     f26:	24 f4       	brge	.+8      	; 0xf30 <sed1520DrawImageShader+0x7a>
+		img->highestX = screenX;
+     f28:	19 96       	adiw	r26, 0x09	; 9
+     f2a:	3c 93       	st	X, r19
+     f2c:	2e 93       	st	-X, r18
+     f2e:	18 97       	sbiw	r26, 0x08	; 8
+	}
+	
+	if(img->mode & SED1520_IMGMODE_INVERTEDCOLORS) {
+     f30:	1a 96       	adiw	r26, 0x0a	; 10
+     f32:	9c 91       	ld	r25, X
+     f34:	90 ff       	sbrs	r25, 0
+     f36:	04 c0       	rjmp	.+8      	; 0xf40 <sed1520DrawImageShader+0x8a>
+		result = !result;
+     f38:	21 e0       	ldi	r18, 0x01	; 1
+     f3a:	81 11       	cpse	r24, r1
+     f3c:	20 e0       	ldi	r18, 0x00	; 0
+     f3e:	82 2f       	mov	r24, r18
+	}
+	
+	if(img->mode & SED1520_IMGMODE_TRANSPARENTBLACK) {
+     f40:	91 fd       	sbrc	r25, 1
+		result &= value;
+     f42:	84 23       	and	r24, r20
+	}
+	
+	if(img->mode & SED1520_IMGMODE_TRANSPARENTWHITE) {
+     f44:	92 fd       	sbrc	r25, 2
+		result |= value;
+     f46:	84 2b       	or	r24, r20
+	}
+	
+	return result;
+}
+     f48:	08 95       	ret
+
+00000f4a <sed1520FillShader>:
+	}
+}
+
+uint8_t sed1520FillShader(uint8_t x, uint8_t y, uint8_t value, uint8_t* pixelValue) {
+	return *pixelValue;
+}
+     f4a:	f9 01       	movw	r30, r18
+     f4c:	80 81       	ld	r24, Z
+     f4e:	08 95       	ret
+
+00000f50 <sed1520ExecuteCommand>:
+#include <avr/pgmspace.h>
+
+uint8_t sed1520ExecuteCommand(uint8_t mode, uint8_t command, uint8_t parameter, uint8_t controller) {
+	uint8_t result = 0;
+	
+	SED1520_CTRLPORT &= ~(SED1520_E);
+     f50:	93 98       	cbi	0x12, 3	; 18
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+     f52:	00 00       	nop
+	
+	DELAY_SHORT;
+	
+	if((mode & SED1520_CMDMODE_WRITE) != 0) {
+     f54:	98 2f       	mov	r25, r24
+     f56:	91 70       	andi	r25, 0x01	; 1
+     f58:	80 ff       	sbrs	r24, 0
+     f5a:	06 c0       	rjmp	.+12     	; 0xf68 <sed1520ExecuteCommand+0x18>
+		SED1520_DATADDR  = 0xff;
+     f5c:	3f ef       	ldi	r19, 0xFF	; 255
+     f5e:	34 bb       	out	0x14, r19	; 20
+		SED1520_DATAPORT = command | parameter;
+     f60:	64 2b       	or	r22, r20
+     f62:	65 bb       	out	0x15, r22	; 21
+		
+		SED1520_CTRLPORT &= ~(SED1520_RW);
+     f64:	90 98       	cbi	0x12, 0	; 18
+     f66:	04 c0       	rjmp	.+8      	; 0xf70 <sed1520ExecuteCommand+0x20>
+	} else {
+		SED1520_DATADDR  = 0x00;
+     f68:	14 ba       	out	0x14, r1	; 20
+		SED1520_DATAPORT = 0xff;
+     f6a:	3f ef       	ldi	r19, 0xFF	; 255
+     f6c:	35 bb       	out	0x15, r19	; 21
+		
+		SED1520_CTRLPORT |= SED1520_RW;
+     f6e:	90 9a       	sbi	0x12, 0	; 18
+	}
+	
+	if((mode & SED1520_CMDMODE_DATA) != 0) {
+     f70:	81 ff       	sbrs	r24, 1
+     f72:	02 c0       	rjmp	.+4      	; 0xf78 <sed1520ExecuteCommand+0x28>
+		SED1520_CTRLPORT |= SED1520_A0;
+     f74:	96 9a       	sbi	0x12, 6	; 18
+     f76:	01 c0       	rjmp	.+2      	; 0xf7a <sed1520ExecuteCommand+0x2a>
+	} else {
+		SED1520_CTRLPORT &= ~(SED1520_A0);
+     f78:	96 98       	cbi	0x12, 6	; 18
+	}
+	
+	if(controller & SED1520_CONTROLLER1) {
+     f7a:	21 ff       	sbrs	r18, 1
+     f7c:	02 c0       	rjmp	.+4      	; 0xf82 <sed1520ExecuteCommand+0x32>
+		SED1520_CTRLPORT &= ~(SED1520_CS1);
+     f7e:	91 98       	cbi	0x12, 1	; 18
+     f80:	01 c0       	rjmp	.+2      	; 0xf84 <sed1520ExecuteCommand+0x34>
+	} else {
+		SED1520_CTRLPORT |= (SED1520_CS1);
+     f82:	91 9a       	sbi	0x12, 1	; 18
+	}
+	
+	if(controller & SED1520_CONTROLLER2) {
+     f84:	25 ff       	sbrs	r18, 5
+     f86:	02 c0       	rjmp	.+4      	; 0xf8c <sed1520ExecuteCommand+0x3c>
+		SED1520_CTRLPORT &= ~(SED1520_CS2);
+     f88:	95 98       	cbi	0x12, 5	; 18
+     f8a:	01 c0       	rjmp	.+2      	; 0xf8e <sed1520ExecuteCommand+0x3e>
+	} else {
+		SED1520_CTRLPORT |= (SED1520_CS2);
+     f8c:	95 9a       	sbi	0x12, 5	; 18
+     f8e:	00 00       	nop
+	}
+	
+	DELAY_SHORT;
+	
+	SED1520_CTRLPORT |= SED1520_E;
+     f90:	93 9a       	sbi	0x12, 3	; 18
+	
+	if((mode & SED1520_CMDMODE_WRITE) == 0) {
+     f92:	91 11       	cpse	r25, r1
+     f94:	02 c0       	rjmp	.+4      	; 0xf9a <sed1520ExecuteCommand+0x4a>
+		result = SED1520_DATAPIN;
+     f96:	83 b3       	in	r24, 0x13	; 19
+     f98:	01 c0       	rjmp	.+2      	; 0xf9c <sed1520ExecuteCommand+0x4c>
+
+#include "sed1520.h"
+#include <avr/pgmspace.h>
+
+uint8_t sed1520ExecuteCommand(uint8_t mode, uint8_t command, uint8_t parameter, uint8_t controller) {
+	uint8_t result = 0;
+     f9a:	80 e0       	ldi	r24, 0x00	; 0
+	
+	if((mode & SED1520_CMDMODE_WRITE) == 0) {
+		result = SED1520_DATAPIN;
+	}
+	
+	SED1520_CTRLPORT &= ~(SED1520_E);
+     f9c:	93 98       	cbi	0x12, 3	; 18
+     f9e:	00 00       	nop
+	
+	DELAY_SHORT;
+	
+	SED1520_CTRLPORT |= SED1520_CS1 | SED1520_CS2;
+     fa0:	92 b3       	in	r25, 0x12	; 18
+     fa2:	92 62       	ori	r25, 0x22	; 34
+     fa4:	92 bb       	out	0x12, r25	; 18
+	
+	return result;
+}
+     fa6:	08 95       	ret
+
+00000fa8 <sed1520BusyExecuteCommand>:
+
+uint8_t sed1520BusyExecuteCommand(uint8_t mode, uint8_t command, uint8_t parameter, uint8_t controller) {
+     fa8:	0f 93       	push	r16
+     faa:	1f 93       	push	r17
+     fac:	cf 93       	push	r28
+     fae:	df 93       	push	r29
+     fb0:	d8 2f       	mov	r29, r24
+     fb2:	16 2f       	mov	r17, r22
+     fb4:	04 2f       	mov	r16, r20
+     fb6:	c2 2f       	mov	r28, r18
+	// wait for the busy flag
+	while((sed1520ExecuteCommand(0, SED1520_CMD_READSTATUS, 0, controller) & SED1520_FLAG_BUSY) != 0);
+     fb8:	2c 2f       	mov	r18, r28
+     fba:	40 e0       	ldi	r20, 0x00	; 0
+     fbc:	60 e0       	ldi	r22, 0x00	; 0
+     fbe:	80 e0       	ldi	r24, 0x00	; 0
+     fc0:	0e 94 a8 07 	call	0xf50	; 0xf50 <sed1520ExecuteCommand>
+     fc4:	88 23       	and	r24, r24
+     fc6:	c4 f3       	brlt	.-16     	; 0xfb8 <sed1520BusyExecuteCommand+0x10>
+	
+	return sed1520ExecuteCommand(mode, command, parameter, controller);
+     fc8:	2c 2f       	mov	r18, r28
+     fca:	40 2f       	mov	r20, r16
+     fcc:	61 2f       	mov	r22, r17
+     fce:	8d 2f       	mov	r24, r29
+     fd0:	0e 94 a8 07 	call	0xf50	; 0xf50 <sed1520ExecuteCommand>
+}
+     fd4:	df 91       	pop	r29
+     fd6:	cf 91       	pop	r28
+     fd8:	1f 91       	pop	r17
+     fda:	0f 91       	pop	r16
+     fdc:	08 95       	ret
+
+00000fde <sed1520Init>:
+
+// atomic graphical functions
+void sed1520Init(void) {
+	SED1520_DATADDR  |= 0xff;
+     fde:	84 b3       	in	r24, 0x14	; 20
+     fe0:	8f ef       	ldi	r24, 0xFF	; 255
+     fe2:	84 bb       	out	0x14, r24	; 20
+	SED1520_DATAPORT  = 0x00;
+     fe4:	15 ba       	out	0x15, r1	; 21
+	
+	SED1520_CTRLDDR  |= SED1520_A0 | SED1520_RW | SED1520_E | SED1520_CS1 | SED1520_CS2 | SED1520_RES;
+     fe6:	81 b3       	in	r24, 0x11	; 17
+     fe8:	8b 66       	ori	r24, 0x6B	; 107
+     fea:	81 bb       	out	0x11, r24	; 17
+	
+	SED1520_CTRLPORT |= SED1520_RES | SED1520_CS1 | SED1520_CS2;
+     fec:	82 b3       	in	r24, 0x12	; 18
+     fee:	82 62       	ori	r24, 0x22	; 34
+     ff0:	82 bb       	out	0x12, r24	; 18
+	SED1520_CTRLPORT &= ~(SED1520_A0 | SED1520_RW | SED1520_E);
+     ff2:	82 b3       	in	r24, 0x12	; 18
+     ff4:	86 7b       	andi	r24, 0xB6	; 182
+     ff6:	82 bb       	out	0x12, r24	; 18
+     ff8:	00 00       	nop
+     ffa:	00 00       	nop
+	
+	DELAY_LONG;
+	
+	sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_RESET, 0, SED1520_CS1 | SED1520_CS2);
+     ffc:	22 e2       	ldi	r18, 0x22	; 34
+     ffe:	40 e0       	ldi	r20, 0x00	; 0
+    1000:	62 ee       	ldi	r22, 0xE2	; 226
+    1002:	81 e0       	ldi	r24, 0x01	; 1
+    1004:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+	sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_DISPLAYSTARTLINE, 0, SED1520_CS1 | SED1520_CS2);
+    1008:	22 e2       	ldi	r18, 0x22	; 34
+    100a:	40 e0       	ldi	r20, 0x00	; 0
+    100c:	60 ec       	ldi	r22, 0xC0	; 192
+    100e:	81 e0       	ldi	r24, 0x01	; 1
+    1010:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+    1014:	08 95       	ret
+
+00001016 <sed1520SetDisplayOnOff>:
+}
+
+void sed1520SetDisplayOnOff(uint8_t on) {
+	sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_DISPLAYONOFF, on, SED1520_CS1 | SED1520_CS2);
+    1016:	22 e2       	ldi	r18, 0x22	; 34
+    1018:	48 2f       	mov	r20, r24
+    101a:	6e ea       	ldi	r22, 0xAE	; 174
+    101c:	81 e0       	ldi	r24, 0x01	; 1
+    101e:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+    1022:	08 95       	ret
+
+00001024 <sed1520SetPixel>:
+
+void sed1520SetStaticOnOff(uint8_t on) {
+	sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_STATICDRIVEONOFF, on, SED1520_CS1 | SED1520_CS2);
+}
+
+void sed1520SetPixel(uint8_t x, uint8_t y, uint8_t value) {
+    1024:	0f 93       	push	r16
+    1026:	1f 93       	push	r17
+    1028:	cf 93       	push	r28
+    102a:	df 93       	push	r29
+    102c:	d8 2f       	mov	r29, r24
+    102e:	04 2f       	mov	r16, r20
+	uint8_t page = y / 8;
+	uint8_t controller = 0;
+	
+	y -= page * 8;
+    1030:	46 2f       	mov	r20, r22
+    1032:	46 95       	lsr	r20
+    1034:	46 95       	lsr	r20
+    1036:	46 95       	lsr	r20
+    1038:	16 2f       	mov	r17, r22
+    103a:	17 70       	andi	r17, 0x07	; 7
+	
+	if(x >= SED1520_SCREENWIDTH / 2) {
+    103c:	8d 33       	cpi	r24, 0x3D	; 61
+    103e:	18 f0       	brcs	.+6      	; 0x1046 <sed1520SetPixel+0x22>
+		controller = SED1520_CONTROLLER2;
+		x -= SED1520_SCREENWIDTH / 2;
+    1040:	dd 53       	subi	r29, 0x3D	; 61
+	uint8_t controller = 0;
+	
+	y -= page * 8;
+	
+	if(x >= SED1520_SCREENWIDTH / 2) {
+		controller = SED1520_CONTROLLER2;
+    1042:	c0 e2       	ldi	r28, 0x20	; 32
+    1044:	01 c0       	rjmp	.+2      	; 0x1048 <sed1520SetPixel+0x24>
+		x -= SED1520_SCREENWIDTH / 2;
+	} else {
+		controller = SED1520_CONTROLLER1;
+    1046:	c2 e0       	ldi	r28, 0x02	; 2
+	}
+	
+	sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_SETPAGEADDRESS, page, controller);
+    1048:	2c 2f       	mov	r18, r28
+    104a:	68 eb       	ldi	r22, 0xB8	; 184
+    104c:	81 e0       	ldi	r24, 0x01	; 1
+    104e:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+	sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_SETCOLUMNADDRESS, x, controller);
+    1052:	2c 2f       	mov	r18, r28
+    1054:	4d 2f       	mov	r20, r29
+    1056:	60 e0       	ldi	r22, 0x00	; 0
+    1058:	81 e0       	ldi	r24, 0x01	; 1
+    105a:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+	
+	// dummy read
+	sed1520BusyExecuteCommand(SED1520_CMDMODE_DATA, SED1520_CMD_READDISPLAYDATA, 0, controller);
+    105e:	2c 2f       	mov	r18, r28
+    1060:	40 e0       	ldi	r20, 0x00	; 0
+    1062:	60 e0       	ldi	r22, 0x00	; 0
+    1064:	82 e0       	ldi	r24, 0x02	; 2
+    1066:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+	
+	if(value) {
+    106a:	00 23       	and	r16, r16
+    106c:	89 f0       	breq	.+34     	; 0x1090 <sed1520SetPixel+0x6c>
+		value = sed1520BusyExecuteCommand(SED1520_CMDMODE_DATA, SED1520_CMD_READDISPLAYDATA, 0, controller) | (1 << y);
+    106e:	2c 2f       	mov	r18, r28
+    1070:	40 e0       	ldi	r20, 0x00	; 0
+    1072:	60 e0       	ldi	r22, 0x00	; 0
+    1074:	82 e0       	ldi	r24, 0x02	; 2
+    1076:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+    107a:	e1 e0       	ldi	r30, 0x01	; 1
+    107c:	f0 e0       	ldi	r31, 0x00	; 0
+    107e:	bf 01       	movw	r22, r30
+    1080:	02 c0       	rjmp	.+4      	; 0x1086 <sed1520SetPixel+0x62>
+    1082:	66 0f       	add	r22, r22
+    1084:	77 1f       	adc	r23, r23
+    1086:	1a 95       	dec	r17
+    1088:	e2 f7       	brpl	.-8      	; 0x1082 <sed1520SetPixel+0x5e>
+    108a:	18 2f       	mov	r17, r24
+    108c:	16 2b       	or	r17, r22
+    108e:	11 c0       	rjmp	.+34     	; 0x10b2 <sed1520SetPixel+0x8e>
+	} else {
+		value = sed1520BusyExecuteCommand(SED1520_CMDMODE_DATA, SED1520_CMD_READDISPLAYDATA, 0, controller) & ~(1 << y);
+    1090:	2c 2f       	mov	r18, r28
+    1092:	40 e0       	ldi	r20, 0x00	; 0
+    1094:	60 e0       	ldi	r22, 0x00	; 0
+    1096:	82 e0       	ldi	r24, 0x02	; 2
+    1098:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+    109c:	e1 e0       	ldi	r30, 0x01	; 1
+    109e:	f0 e0       	ldi	r31, 0x00	; 0
+    10a0:	bf 01       	movw	r22, r30
+    10a2:	02 c0       	rjmp	.+4      	; 0x10a8 <sed1520SetPixel+0x84>
+    10a4:	66 0f       	add	r22, r22
+    10a6:	77 1f       	adc	r23, r23
+    10a8:	1a 95       	dec	r17
+    10aa:	e2 f7       	brpl	.-8      	; 0x10a4 <sed1520SetPixel+0x80>
+    10ac:	60 95       	com	r22
+    10ae:	18 2f       	mov	r17, r24
+    10b0:	16 23       	and	r17, r22
+	}
+	
+	sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_SETCOLUMNADDRESS, x, controller);
+    10b2:	2c 2f       	mov	r18, r28
+    10b4:	4d 2f       	mov	r20, r29
+    10b6:	60 e0       	ldi	r22, 0x00	; 0
+    10b8:	81 e0       	ldi	r24, 0x01	; 1
+    10ba:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+	sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE | SED1520_CMDMODE_DATA, SED1520_CMD_WRITEDISPLAYDATA, value, controller);
+    10be:	2c 2f       	mov	r18, r28
+    10c0:	41 2f       	mov	r20, r17
+    10c2:	60 e0       	ldi	r22, 0x00	; 0
+    10c4:	83 e0       	ldi	r24, 0x03	; 3
+    10c6:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+}
+    10ca:	df 91       	pop	r29
+    10cc:	cf 91       	pop	r28
+    10ce:	1f 91       	pop	r17
+    10d0:	0f 91       	pop	r16
+    10d2:	08 95       	ret
+
+000010d4 <sed1520ShaderExecute>:
+	result = (sed1520BusyExecuteCommand(SED1520_CMDMODE_DATA, SED1520_CMD_READDISPLAYDATA, 0, controller) >> y) & 0x01;
+	
+	return result;
+}
+
+void sed1520ShaderExecute(SED1520SHADERCALLBACK shaderCallback, uint8_t originX, uint8_t originY, uint8_t width, uint8_t height, void* additionalData) {
+    10d4:	2f 92       	push	r2
+    10d6:	3f 92       	push	r3
+    10d8:	4f 92       	push	r4
+    10da:	5f 92       	push	r5
+    10dc:	6f 92       	push	r6
+    10de:	7f 92       	push	r7
+    10e0:	8f 92       	push	r8
+    10e2:	9f 92       	push	r9
+    10e4:	af 92       	push	r10
+    10e6:	bf 92       	push	r11
+    10e8:	cf 92       	push	r12
+    10ea:	df 92       	push	r13
+    10ec:	ef 92       	push	r14
+    10ee:	ff 92       	push	r15
+    10f0:	0f 93       	push	r16
+    10f2:	1f 93       	push	r17
+    10f4:	cf 93       	push	r28
+    10f6:	df 93       	push	r29
+    10f8:	cd b7       	in	r28, 0x3d	; 61
+    10fa:	de b7       	in	r29, 0x3e	; 62
+    10fc:	66 97       	sbiw	r28, 0x16	; 22
+    10fe:	0f b6       	in	r0, 0x3f	; 63
+    1100:	f8 94       	cli
+    1102:	de bf       	out	0x3e, r29	; 62
+    1104:	0f be       	out	0x3f, r0	; 63
+    1106:	cd bf       	out	0x3d, r28	; 61
+    1108:	9f 83       	std	Y+7, r25	; 0x07
+    110a:	8e 83       	std	Y+6, r24	; 0x06
+    110c:	6e 87       	std	Y+14, r22	; 0x0e
+    110e:	f9 86       	std	Y+9, r15	; 0x09
+    1110:	e8 86       	std	Y+8, r14	; 0x08
+			}
+		}
+		
+		switch(controller) {
+			case SED1520_CONTROLLER1:
+				controller = SED1520_CONTROLLER2;
+    1112:	6d 83       	std	Y+5, r22	; 0x05
+    1114:	61 2c       	mov	r6, r1
+	return result;
+}
+
+void sed1520ShaderExecute(SED1520SHADERCALLBACK shaderCallback, uint8_t originX, uint8_t originY, uint8_t width, uint8_t height, void* additionalData) {
+	uint8_t pixelValue;
+	uint8_t controller = SED1520_CONTROLLER1;
+    1116:	68 94       	set
+    1118:	44 24       	eor	r4, r4
+    111a:	41 f8       	bld	r4, 1
+	uint8_t counter = 0;
+	
+	while(controller != 0) {
+		page = 0;
+		
+		if(originX + width >= counter && originX < counter + SED1520_SCREENWIDTH / 2) {
+    111c:	86 2f       	mov	r24, r22
+    111e:	90 e0       	ldi	r25, 0x00	; 0
+    1120:	9d 87       	std	Y+13, r25	; 0x0d
+    1122:	8c 87       	std	Y+12, r24	; 0x0c
+    1124:	82 0f       	add	r24, r18
+    1126:	91 1d       	adc	r25, r1
+    1128:	9b 83       	std	Y+3, r25	; 0x03
+    112a:	8a 83       	std	Y+2, r24	; 0x02
+			for(uint8_t pageY = 0; pageY < SED1520_SCREENHEIGHT; pageY += 8, page ++) {
+				if((pageY + 8) >= originY && pageY < originY + height) {
+    112c:	c4 2e       	mov	r12, r20
+    112e:	d1 2c       	mov	r13, r1
+    1130:	16 01       	movw	r2, r12
+    1132:	20 0e       	add	r2, r16
+    1134:	31 1c       	adc	r3, r1
+						
+						for(uint8_t y = 0; y < 8; y ++) {
+							if(y + pageY >= originY && y + pageY < originY + height) {
+								newValue |= shaderCallback(realX, y + pageY, (pixelValue >> y) & 0x01, additionalData) << y;
+							} else {
+								newValue |= pixelValue & (0x01 << y);
+    1136:	aa 24       	eor	r10, r10
+    1138:	a3 94       	inc	r10
+    113a:	b1 2c       	mov	r11, r1
+    113c:	69 82       	std	Y+1, r6	; 0x01
+    113e:	c1 01       	movw	r24, r2
+    1140:	16 01       	movw	r2, r12
+    1142:	6c 01       	movw	r12, r24
+    1144:	09 c0       	rjmp	.+18     	; 0x1158 <sed1520ShaderExecute+0x84>
+			}
+		}
+		
+		switch(controller) {
+			case SED1520_CONTROLLER1:
+				controller = SED1520_CONTROLLER2;
+    1146:	68 94       	set
+    1148:	44 24       	eor	r4, r4
+    114a:	45 f8       	bld	r4, 5
+    114c:	e9 81       	ldd	r30, Y+1	; 0x01
+    114e:	e3 5c       	subi	r30, 0xC3	; 195
+    1150:	e9 83       	std	Y+1, r30	; 0x01
+    1152:	fd 81       	ldd	r31, Y+5	; 0x05
+    1154:	fd 53       	subi	r31, 0x3D	; 61
+    1156:	fd 83       	std	Y+5, r31	; 0x05
+	uint8_t counter = 0;
+	
+	while(controller != 0) {
+		page = 0;
+		
+		if(originX + width >= counter && originX < counter + SED1520_SCREENWIDTH / 2) {
+    1158:	29 81       	ldd	r18, Y+1	; 0x01
+    115a:	82 2f       	mov	r24, r18
+    115c:	90 e0       	ldi	r25, 0x00	; 0
+    115e:	ea 81       	ldd	r30, Y+2	; 0x02
+    1160:	fb 81       	ldd	r31, Y+3	; 0x03
+    1162:	e8 17       	cp	r30, r24
+    1164:	f9 07       	cpc	r31, r25
+    1166:	0c f4       	brge	.+2      	; 0x116a <sed1520ShaderExecute+0x96>
+    1168:	c7 c0       	rjmp	.+398    	; 0x12f8 <sed1520ShaderExecute+0x224>
+    116a:	cd 96       	adiw	r24, 0x3d	; 61
+    116c:	2c 85       	ldd	r18, Y+12	; 0x0c
+    116e:	3d 85       	ldd	r19, Y+13	; 0x0d
+    1170:	28 17       	cp	r18, r24
+    1172:	39 07       	cpc	r19, r25
+    1174:	0c f0       	brlt	.+2      	; 0x1178 <sed1520ShaderExecute+0xa4>
+    1176:	c0 c0       	rjmp	.+384    	; 0x12f8 <sed1520ShaderExecute+0x224>
+    1178:	3e 85       	ldd	r19, Y+14	; 0x0e
+    117a:	89 81       	ldd	r24, Y+1	; 0x01
+    117c:	83 17       	cp	r24, r19
+    117e:	10 f4       	brcc	.+4      	; 0x1184 <sed1520ShaderExecute+0xb0>
+    1180:	8d 81       	ldd	r24, Y+5	; 0x05
+    1182:	01 c0       	rjmp	.+2      	; 0x1186 <sed1520ShaderExecute+0xb2>
+    1184:	80 e0       	ldi	r24, 0x00	; 0
+					
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_READMODIFYWRITE, 0, controller);
+					
+					while(x < SED1520_SCREENWIDTH / 2) {
+						uint8_t newValue = 0;
+						uint8_t realX = x + counter;
+    1186:	99 81       	ldd	r25, Y+1	; 0x01
+    1188:	98 0f       	add	r25, r24
+						
+						if(realX >= originX + width) {
+    118a:	e9 2f       	mov	r30, r25
+    118c:	f0 e0       	ldi	r31, 0x00	; 0
+    118e:	f8 8b       	std	Y+16, r31	; 0x10
+    1190:	ef 87       	std	Y+15, r30	; 0x0f
+    1192:	00 e0       	ldi	r16, 0x00	; 0
+    1194:	10 e0       	ldi	r17, 0x00	; 0
+    1196:	1c 82       	std	Y+4, r1	; 0x04
+					
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_READMODIFYWRITE, 0, controller);
+					
+					while(x < SED1520_SCREENWIDTH / 2) {
+						uint8_t newValue = 0;
+						uint8_t realX = x + counter;
+    1198:	99 8b       	std	Y+17, r25	; 0x11
+						
+						if(realX >= originX + width) {
+    119a:	8a 8b       	std	Y+18, r24	; 0x12
+    119c:	78 01       	movw	r14, r16
+    119e:	f8 e0       	ldi	r31, 0x08	; 8
+    11a0:	ef 0e       	add	r14, r31
+    11a2:	f1 1c       	adc	r15, r1
+	while(controller != 0) {
+		page = 0;
+		
+		if(originX + width >= counter && originX < counter + SED1520_SCREENWIDTH / 2) {
+			for(uint8_t pageY = 0; pageY < SED1520_SCREENHEIGHT; pageY += 8, page ++) {
+				if((pageY + 8) >= originY && pageY < originY + height) {
+    11a4:	e2 14       	cp	r14, r2
+    11a6:	f3 04       	cpc	r15, r3
+    11a8:	0c f4       	brge	.+2      	; 0x11ac <sed1520ShaderExecute+0xd8>
+    11aa:	9d c0       	rjmp	.+314    	; 0x12e6 <sed1520ShaderExecute+0x212>
+    11ac:	0c 15       	cp	r16, r12
+    11ae:	1d 05       	cpc	r17, r13
+    11b0:	0c f0       	brlt	.+2      	; 0x11b4 <sed1520ShaderExecute+0xe0>
+    11b2:	99 c0       	rjmp	.+306    	; 0x12e6 <sed1520ShaderExecute+0x212>
+					uint8_t x = 0;
+					
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_SETPAGEADDRESS, page, controller);
+    11b4:	24 2d       	mov	r18, r4
+    11b6:	4c 81       	ldd	r20, Y+4	; 0x04
+    11b8:	68 eb       	ldi	r22, 0xB8	; 184
+    11ba:	81 e0       	ldi	r24, 0x01	; 1
+    11bc:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+					
+					if(originX > counter) {
+    11c0:	2e 85       	ldd	r18, Y+14	; 0x0e
+    11c2:	39 81       	ldd	r19, Y+1	; 0x01
+    11c4:	32 17       	cp	r19, r18
+    11c6:	08 f0       	brcs	.+2      	; 0x11ca <sed1520ShaderExecute+0xf6>
+    11c8:	a1 c0       	rjmp	.+322    	; 0x130c <sed1520ShaderExecute+0x238>
+						x = originX - counter;
+					}
+					
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_SETCOLUMNADDRESS, x, controller);
+    11ca:	24 2d       	mov	r18, r4
+    11cc:	4d 81       	ldd	r20, Y+5	; 0x05
+    11ce:	60 e0       	ldi	r22, 0x00	; 0
+    11d0:	81 e0       	ldi	r24, 0x01	; 1
+    11d2:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+					
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_READMODIFYWRITE, 0, controller);
+    11d6:	24 2d       	mov	r18, r4
+    11d8:	40 e0       	ldi	r20, 0x00	; 0
+    11da:	60 ee       	ldi	r22, 0xE0	; 224
+    11dc:	81 e0       	ldi	r24, 0x01	; 1
+    11de:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+					
+					while(x < SED1520_SCREENWIDTH / 2) {
+    11e2:	8d 81       	ldd	r24, Y+5	; 0x05
+    11e4:	8d 33       	cpi	r24, 0x3D	; 61
+    11e6:	08 f0       	brcs	.+2      	; 0x11ea <sed1520ShaderExecute+0x116>
+    11e8:	78 c0       	rjmp	.+240    	; 0x12da <sed1520ShaderExecute+0x206>
+						uint8_t newValue = 0;
+						uint8_t realX = x + counter;
+						
+						if(realX >= originX + width) {
+    11ea:	ea 81       	ldd	r30, Y+2	; 0x02
+    11ec:	fb 81       	ldd	r31, Y+3	; 0x03
+    11ee:	2f 85       	ldd	r18, Y+15	; 0x0f
+    11f0:	38 89       	ldd	r19, Y+16	; 0x10
+    11f2:	2e 17       	cp	r18, r30
+    11f4:	3f 07       	cpc	r19, r31
+    11f6:	0c f0       	brlt	.+2      	; 0x11fa <sed1520ShaderExecute+0x126>
+    11f8:	70 c0       	rjmp	.+224    	; 0x12da <sed1520ShaderExecute+0x206>
+					
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_READMODIFYWRITE, 0, controller);
+					
+					while(x < SED1520_SCREENWIDTH / 2) {
+						uint8_t newValue = 0;
+						uint8_t realX = x + counter;
+    11fa:	69 88       	ldd	r6, Y+17	; 0x11
+						
+						if(realX >= originX + width) {
+    11fc:	7a 88       	ldd	r7, Y+18	; 0x12
+						}
+						
+						// dummy read
+						sed1520BusyExecuteCommand(SED1520_CMDMODE_DATA, SED1520_CMD_READDISPLAYDATA, 0, controller);
+						
+						pixelValue = sed1520BusyExecuteCommand(SED1520_CMDMODE_DATA, SED1520_CMD_READDISPLAYDATA, 0, controller);
+    11fe:	0a 87       	std	Y+10, r16	; 0x0a
+    1200:	1b 87       	std	Y+11, r17	; 0x0b
+    1202:	fc 8a       	std	Y+20, r15	; 0x14
+    1204:	eb 8a       	std	Y+19, r14	; 0x13
+    1206:	0a c0       	rjmp	.+20     	; 0x121c <sed1520ShaderExecute+0x148>
+					
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_READMODIFYWRITE, 0, controller);
+					
+					while(x < SED1520_SCREENWIDTH / 2) {
+						uint8_t newValue = 0;
+						uint8_t realX = x + counter;
+    1208:	69 80       	ldd	r6, Y+1	; 0x01
+    120a:	67 0c       	add	r6, r7
+						
+						if(realX >= originX + width) {
+    120c:	86 2d       	mov	r24, r6
+    120e:	90 e0       	ldi	r25, 0x00	; 0
+    1210:	ea 81       	ldd	r30, Y+2	; 0x02
+    1212:	fb 81       	ldd	r31, Y+3	; 0x03
+    1214:	8e 17       	cp	r24, r30
+    1216:	9f 07       	cpc	r25, r31
+    1218:	0c f0       	brlt	.+2      	; 0x121c <sed1520ShaderExecute+0x148>
+    121a:	5d c0       	rjmp	.+186    	; 0x12d6 <sed1520ShaderExecute+0x202>
+							break;
+						}
+						
+						// dummy read
+						sed1520BusyExecuteCommand(SED1520_CMDMODE_DATA, SED1520_CMD_READDISPLAYDATA, 0, controller);
+    121c:	24 2d       	mov	r18, r4
+    121e:	40 e0       	ldi	r20, 0x00	; 0
+    1220:	60 e0       	ldi	r22, 0x00	; 0
+    1222:	82 e0       	ldi	r24, 0x02	; 2
+    1224:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+						
+						pixelValue = sed1520BusyExecuteCommand(SED1520_CMDMODE_DATA, SED1520_CMD_READDISPLAYDATA, 0, controller);
+    1228:	24 2d       	mov	r18, r4
+    122a:	40 e0       	ldi	r20, 0x00	; 0
+    122c:	60 e0       	ldi	r22, 0x00	; 0
+    122e:	82 e0       	ldi	r24, 0x02	; 2
+    1230:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+    1234:	58 2e       	mov	r5, r24
+    1236:	fa 85       	ldd	r31, Y+10	; 0x0a
+    1238:	fd 8b       	std	Y+21, r31	; 0x15
+    123a:	2b 85       	ldd	r18, Y+11	; 0x0b
+    123c:	2e 8b       	std	Y+22, r18	; 0x16
+    123e:	00 e0       	ldi	r16, 0x00	; 0
+    1240:	10 e0       	ldi	r17, 0x00	; 0
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_SETCOLUMNADDRESS, x, controller);
+					
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_READMODIFYWRITE, 0, controller);
+					
+					while(x < SED1520_SCREENWIDTH / 2) {
+						uint8_t newValue = 0;
+    1242:	91 2c       	mov	r9, r1
+						
+						pixelValue = sed1520BusyExecuteCommand(SED1520_CMDMODE_DATA, SED1520_CMD_READDISPLAYDATA, 0, controller);
+						
+						for(uint8_t y = 0; y < 8; y ++) {
+							if(y + pageY >= originY && y + pageY < originY + height) {
+								newValue |= shaderCallback(realX, y + pageY, (pixelValue >> y) & 0x01, additionalData) << y;
+    1244:	e8 2e       	mov	r14, r24
+    1246:	f1 2c       	mov	r15, r1
+    1248:	87 2c       	mov	r8, r7
+    124a:	c7 01       	movw	r24, r14
+    124c:	e6 2c       	mov	r14, r6
+    124e:	3c 01       	movw	r6, r24
+						sed1520BusyExecuteCommand(SED1520_CMDMODE_DATA, SED1520_CMD_READDISPLAYDATA, 0, controller);
+						
+						pixelValue = sed1520BusyExecuteCommand(SED1520_CMDMODE_DATA, SED1520_CMD_READDISPLAYDATA, 0, controller);
+						
+						for(uint8_t y = 0; y < 8; y ++) {
+							if(y + pageY >= originY && y + pageY < originY + height) {
+    1250:	f0 2e       	mov	r15, r16
+    1252:	2d 89       	ldd	r18, Y+21	; 0x15
+    1254:	3e 89       	ldd	r19, Y+22	; 0x16
+    1256:	22 15       	cp	r18, r2
+    1258:	33 05       	cpc	r19, r3
+    125a:	dc f0       	brlt	.+54     	; 0x1292 <sed1520ShaderExecute+0x1be>
+    125c:	2c 15       	cp	r18, r12
+    125e:	3d 05       	cpc	r19, r13
+    1260:	c4 f4       	brge	.+48     	; 0x1292 <sed1520ShaderExecute+0x1be>
+								newValue |= shaderCallback(realX, y + pageY, (pixelValue >> y) & 0x01, additionalData) << y;
+    1262:	a3 01       	movw	r20, r6
+    1264:	00 2e       	mov	r0, r16
+    1266:	02 c0       	rjmp	.+4      	; 0x126c <sed1520ShaderExecute+0x198>
+    1268:	55 95       	asr	r21
+    126a:	47 95       	ror	r20
+    126c:	0a 94       	dec	r0
+    126e:	e2 f7       	brpl	.-8      	; 0x1268 <sed1520ShaderExecute+0x194>
+    1270:	41 70       	andi	r20, 0x01	; 1
+    1272:	28 85       	ldd	r18, Y+8	; 0x08
+    1274:	39 85       	ldd	r19, Y+9	; 0x09
+    1276:	6d 89       	ldd	r22, Y+21	; 0x15
+    1278:	8e 2d       	mov	r24, r14
+    127a:	ee 81       	ldd	r30, Y+6	; 0x06
+    127c:	ff 81       	ldd	r31, Y+7	; 0x07
+    127e:	09 95       	icall
+    1280:	90 e0       	ldi	r25, 0x00	; 0
+    1282:	00 2e       	mov	r0, r16
+    1284:	02 c0       	rjmp	.+4      	; 0x128a <sed1520ShaderExecute+0x1b6>
+    1286:	88 0f       	add	r24, r24
+    1288:	99 1f       	adc	r25, r25
+    128a:	0a 94       	dec	r0
+    128c:	e2 f7       	brpl	.-8      	; 0x1286 <sed1520ShaderExecute+0x1b2>
+    128e:	98 2a       	or	r9, r24
+    1290:	08 c0       	rjmp	.+16     	; 0x12a2 <sed1520ShaderExecute+0x1ce>
+							} else {
+								newValue |= pixelValue & (0x01 << y);
+    1292:	c5 01       	movw	r24, r10
+    1294:	02 c0       	rjmp	.+4      	; 0x129a <sed1520ShaderExecute+0x1c6>
+    1296:	88 0f       	add	r24, r24
+    1298:	99 1f       	adc	r25, r25
+    129a:	fa 94       	dec	r15
+    129c:	e2 f7       	brpl	.-8      	; 0x1296 <sed1520ShaderExecute+0x1c2>
+    129e:	85 21       	and	r24, r5
+    12a0:	98 2a       	or	r9, r24
+    12a2:	0f 5f       	subi	r16, 0xFF	; 255
+    12a4:	1f 4f       	sbci	r17, 0xFF	; 255
+    12a6:	2d 89       	ldd	r18, Y+21	; 0x15
+    12a8:	3e 89       	ldd	r19, Y+22	; 0x16
+    12aa:	2f 5f       	subi	r18, 0xFF	; 255
+    12ac:	3f 4f       	sbci	r19, 0xFF	; 255
+    12ae:	3e 8b       	std	Y+22, r19	; 0x16
+    12b0:	2d 8b       	std	Y+21, r18	; 0x15
+						// dummy read
+						sed1520BusyExecuteCommand(SED1520_CMDMODE_DATA, SED1520_CMD_READDISPLAYDATA, 0, controller);
+						
+						pixelValue = sed1520BusyExecuteCommand(SED1520_CMDMODE_DATA, SED1520_CMD_READDISPLAYDATA, 0, controller);
+						
+						for(uint8_t y = 0; y < 8; y ++) {
+    12b2:	08 30       	cpi	r16, 0x08	; 8
+    12b4:	11 05       	cpc	r17, r1
+    12b6:	61 f6       	brne	.-104    	; 0x1250 <sed1520ShaderExecute+0x17c>
+    12b8:	78 2c       	mov	r7, r8
+							} else {
+								newValue |= pixelValue & (0x01 << y);
+							}
+						}
+						
+						sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE | SED1520_CMDMODE_DATA, SED1520_CMD_WRITEDISPLAYDATA, newValue, controller);
+    12ba:	24 2d       	mov	r18, r4
+    12bc:	49 2d       	mov	r20, r9
+    12be:	60 e0       	ldi	r22, 0x00	; 0
+    12c0:	83 e0       	ldi	r24, 0x03	; 3
+    12c2:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+						
+						x ++;
+    12c6:	73 94       	inc	r7
+					
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_SETCOLUMNADDRESS, x, controller);
+					
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_READMODIFYWRITE, 0, controller);
+					
+					while(x < SED1520_SCREENWIDTH / 2) {
+    12c8:	3c e3       	ldi	r19, 0x3C	; 60
+    12ca:	37 15       	cp	r19, r7
+    12cc:	08 f0       	brcs	.+2      	; 0x12d0 <sed1520ShaderExecute+0x1fc>
+    12ce:	9c cf       	rjmp	.-200    	; 0x1208 <sed1520ShaderExecute+0x134>
+    12d0:	eb 88       	ldd	r14, Y+19	; 0x13
+    12d2:	fc 88       	ldd	r15, Y+20	; 0x14
+    12d4:	02 c0       	rjmp	.+4      	; 0x12da <sed1520ShaderExecute+0x206>
+    12d6:	eb 88       	ldd	r14, Y+19	; 0x13
+    12d8:	fc 88       	ldd	r15, Y+20	; 0x14
+						sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE | SED1520_CMDMODE_DATA, SED1520_CMD_WRITEDISPLAYDATA, newValue, controller);
+						
+						x ++;
+					}
+					
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_END, 0, controller);
+    12da:	24 2d       	mov	r18, r4
+    12dc:	40 e0       	ldi	r20, 0x00	; 0
+    12de:	6e ee       	ldi	r22, 0xEE	; 238
+    12e0:	81 e0       	ldi	r24, 0x01	; 1
+    12e2:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+	
+	while(controller != 0) {
+		page = 0;
+		
+		if(originX + width >= counter && originX < counter + SED1520_SCREENWIDTH / 2) {
+			for(uint8_t pageY = 0; pageY < SED1520_SCREENHEIGHT; pageY += 8, page ++) {
+    12e6:	8c 81       	ldd	r24, Y+4	; 0x04
+    12e8:	8f 5f       	subi	r24, 0xFF	; 255
+    12ea:	8c 83       	std	Y+4, r24	; 0x04
+    12ec:	90 e2       	ldi	r25, 0x20	; 32
+    12ee:	e9 16       	cp	r14, r25
+    12f0:	f1 04       	cpc	r15, r1
+    12f2:	11 f0       	breq	.+4      	; 0x12f8 <sed1520ShaderExecute+0x224>
+    12f4:	87 01       	movw	r16, r14
+    12f6:	52 cf       	rjmp	.-348    	; 0x119c <sed1520ShaderExecute+0xc8>
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_END, 0, controller);
+				}
+			}
+		}
+		
+		switch(controller) {
+    12f8:	e2 e0       	ldi	r30, 0x02	; 2
+    12fa:	4e 16       	cp	r4, r30
+    12fc:	09 f4       	brne	.+2      	; 0x1300 <sed1520ShaderExecute+0x22c>
+    12fe:	23 cf       	rjmp	.-442    	; 0x1146 <sed1520ShaderExecute+0x72>
+    1300:	f0 e2       	ldi	r31, 0x20	; 32
+    1302:	4f 16       	cp	r4, r31
+    1304:	81 f0       	breq	.+32     	; 0x1326 <sed1520ShaderExecute+0x252>
+	uint8_t pixelValue;
+	uint8_t controller = SED1520_CONTROLLER1;
+	uint8_t page;
+	uint8_t counter = 0;
+	
+	while(controller != 0) {
+    1306:	41 10       	cpse	r4, r1
+    1308:	21 cf       	rjmp	.-446    	; 0x114c <sed1520ShaderExecute+0x78>
+    130a:	0d c0       	rjmp	.+26     	; 0x1326 <sed1520ShaderExecute+0x252>
+					
+					if(originX > counter) {
+						x = originX - counter;
+					}
+					
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_SETCOLUMNADDRESS, x, controller);
+    130c:	24 2d       	mov	r18, r4
+    130e:	40 e0       	ldi	r20, 0x00	; 0
+    1310:	60 e0       	ldi	r22, 0x00	; 0
+    1312:	81 e0       	ldi	r24, 0x01	; 1
+    1314:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+					
+					sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_READMODIFYWRITE, 0, controller);
+    1318:	24 2d       	mov	r18, r4
+    131a:	40 e0       	ldi	r20, 0x00	; 0
+    131c:	60 ee       	ldi	r22, 0xE0	; 224
+    131e:	81 e0       	ldi	r24, 0x01	; 1
+    1320:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+    1324:	62 cf       	rjmp	.-316    	; 0x11ea <sed1520ShaderExecute+0x116>
+				break;
+		}
+		
+		counter += SED1520_SCREENWIDTH / 2;
+	}
+}
+    1326:	66 96       	adiw	r28, 0x16	; 22
+    1328:	0f b6       	in	r0, 0x3f	; 63
+    132a:	f8 94       	cli
+    132c:	de bf       	out	0x3e, r29	; 62
+    132e:	0f be       	out	0x3f, r0	; 63
+    1330:	cd bf       	out	0x3d, r28	; 61
+    1332:	df 91       	pop	r29
+    1334:	cf 91       	pop	r28
+    1336:	1f 91       	pop	r17
+    1338:	0f 91       	pop	r16
+    133a:	ff 90       	pop	r15
+    133c:	ef 90       	pop	r14
+    133e:	df 90       	pop	r13
+    1340:	cf 90       	pop	r12
+    1342:	bf 90       	pop	r11
+    1344:	af 90       	pop	r10
+    1346:	9f 90       	pop	r9
+    1348:	8f 90       	pop	r8
+    134a:	7f 90       	pop	r7
+    134c:	6f 90       	pop	r6
+    134e:	5f 90       	pop	r5
+    1350:	4f 90       	pop	r4
+    1352:	3f 90       	pop	r3
+    1354:	2f 90       	pop	r2
+    1356:	08 95       	ret
+
+00001358 <sed1520ClearScreen>:
+
+void sed1520ClearScreen(void) {
+    1358:	1f 93       	push	r17
+    135a:	cf 93       	push	r28
+    135c:	df 93       	push	r29
+	for(uint8_t y = 0; y < SED1520_SCREENHEIGHT / 8; y ++) {
+    135e:	10 e0       	ldi	r17, 0x00	; 0
+		sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_SETPAGEADDRESS, y, SED1520_CS1 | SED1520_CS2);
+		for(uint8_t x = 0; x < SED1520_SCREENWIDTH / 2; x ++) {
+    1360:	d0 e0       	ldi	r29, 0x00	; 0
+	}
+}
+
+void sed1520ClearScreen(void) {
+	for(uint8_t y = 0; y < SED1520_SCREENHEIGHT / 8; y ++) {
+		sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_SETPAGEADDRESS, y, SED1520_CS1 | SED1520_CS2);
+    1362:	22 e2       	ldi	r18, 0x22	; 34
+    1364:	41 2f       	mov	r20, r17
+    1366:	68 eb       	ldi	r22, 0xB8	; 184
+    1368:	81 e0       	ldi	r24, 0x01	; 1
+    136a:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+		for(uint8_t x = 0; x < SED1520_SCREENWIDTH / 2; x ++) {
+    136e:	cd 2f       	mov	r28, r29
+			sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_SETCOLUMNADDRESS, x, SED1520_CS1 | SED1520_CS2);
+    1370:	22 e2       	ldi	r18, 0x22	; 34
+    1372:	4c 2f       	mov	r20, r28
+    1374:	6d 2f       	mov	r22, r29
+    1376:	81 e0       	ldi	r24, 0x01	; 1
+    1378:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+			sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE | SED1520_CMDMODE_DATA, SED1520_CMD_WRITEDISPLAYDATA, 0x00, SED1520_CS1 | SED1520_CS2);
+    137c:	22 e2       	ldi	r18, 0x22	; 34
+    137e:	4d 2f       	mov	r20, r29
+    1380:	6d 2f       	mov	r22, r29
+    1382:	83 e0       	ldi	r24, 0x03	; 3
+    1384:	0e 94 d4 07 	call	0xfa8	; 0xfa8 <sed1520BusyExecuteCommand>
+}
+
+void sed1520ClearScreen(void) {
+	for(uint8_t y = 0; y < SED1520_SCREENHEIGHT / 8; y ++) {
+		sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_SETPAGEADDRESS, y, SED1520_CS1 | SED1520_CS2);
+		for(uint8_t x = 0; x < SED1520_SCREENWIDTH / 2; x ++) {
+    1388:	cf 5f       	subi	r28, 0xFF	; 255
+    138a:	cd 33       	cpi	r28, 0x3D	; 61
+    138c:	89 f7       	brne	.-30     	; 0x1370 <sed1520ClearScreen+0x18>
+		counter += SED1520_SCREENWIDTH / 2;
+	}
+}
+
+void sed1520ClearScreen(void) {
+	for(uint8_t y = 0; y < SED1520_SCREENHEIGHT / 8; y ++) {
+    138e:	1f 5f       	subi	r17, 0xFF	; 255
+    1390:	14 30       	cpi	r17, 0x04	; 4
+    1392:	39 f7       	brne	.-50     	; 0x1362 <sed1520ClearScreen+0xa>
+		for(uint8_t x = 0; x < SED1520_SCREENWIDTH / 2; x ++) {
+			sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE, SED1520_CMD_SETCOLUMNADDRESS, x, SED1520_CS1 | SED1520_CS2);
+			sed1520BusyExecuteCommand(SED1520_CMDMODE_WRITE | SED1520_CMDMODE_DATA, SED1520_CMD_WRITEDISPLAYDATA, 0x00, SED1520_CS1 | SED1520_CS2);
+		}
+	}
+}
+    1394:	df 91       	pop	r29
+    1396:	cf 91       	pop	r28
+    1398:	1f 91       	pop	r17
+    139a:	08 95       	ret
+
+0000139c <sed1520DrawImage>:
+	}
+	
+	return result;
+}
+
+int16_t sed1520DrawImage(uint8_t* imgData, uint8_t mode, int16_t originX, int16_t originY, uint8_t clipX, uint8_t clipY, uint8_t clipWidth, uint8_t clipHeight) {
+    139c:	4f 92       	push	r4
+    139e:	5f 92       	push	r5
+    13a0:	6f 92       	push	r6
+    13a2:	7f 92       	push	r7
+    13a4:	8f 92       	push	r8
+    13a6:	9f 92       	push	r9
+    13a8:	af 92       	push	r10
+    13aa:	cf 92       	push	r12
+    13ac:	ef 92       	push	r14
+    13ae:	ff 92       	push	r15
+    13b0:	0f 93       	push	r16
+    13b2:	cf 93       	push	r28
+    13b4:	df 93       	push	r29
+    13b6:	cd b7       	in	r28, 0x3d	; 61
+    13b8:	de b7       	in	r29, 0x3e	; 62
+    13ba:	2b 97       	sbiw	r28, 0x0b	; 11
+    13bc:	0f b6       	in	r0, 0x3f	; 63
+    13be:	f8 94       	cli
+    13c0:	de bf       	out	0x3e, r29	; 62
+    13c2:	0f be       	out	0x3f, r0	; 63
+    13c4:	cd bf       	out	0x3d, r28	; 61
+    13c6:	da 01       	movw	r26, r20
+    13c8:	a9 01       	movw	r20, r18
+	SED1520IMAGE img;
+	
+	img.x = originX;
+    13ca:	2a 2f       	mov	r18, r26
+    13cc:	a9 83       	std	Y+1, r26	; 0x01
+	img.y = originY;
+    13ce:	34 2f       	mov	r19, r20
+    13d0:	4a 83       	std	Y+2, r20	; 0x02
+	img.width    = pgm_read_word(imgData); imgData += 2;
+    13d2:	fc 01       	movw	r30, r24
+    13d4:	65 90       	lpm	r6, Z+
+    13d6:	74 90       	lpm	r7, Z
+    13d8:	23 01       	movw	r4, r6
+    13da:	7c 82       	std	Y+4, r7	; 0x04
+    13dc:	6b 82       	std	Y+3, r6	; 0x03
+    13de:	fc 01       	movw	r30, r24
+    13e0:	32 96       	adiw	r30, 0x02	; 2
+	img.height   = pgm_read_word(imgData); imgData += 2;
+    13e2:	85 90       	lpm	r8, Z+
+    13e4:	94 90       	lpm	r9, Z
+    13e6:	f4 01       	movw	r30, r8
+    13e8:	9e 82       	std	Y+6, r9	; 0x06
+    13ea:	8d 82       	std	Y+5, r8	; 0x05
+    13ec:	04 96       	adiw	r24, 0x04	; 4
+	img.imgData  = imgData;
+    13ee:	98 87       	std	Y+8, r25	; 0x08
+    13f0:	8f 83       	std	Y+7, r24	; 0x07
+	img.highestX = originX;
+    13f2:	ba 87       	std	Y+10, r27	; 0x0a
+    13f4:	a9 87       	std	Y+9, r26	; 0x09
+	img.mode     = mode;
+    13f6:	6b 87       	std	Y+11, r22	; 0x0b
+	
+	if(clipX >= img.width) {
+    13f8:	80 2f       	mov	r24, r16
+    13fa:	90 e0       	ldi	r25, 0x00	; 0
+    13fc:	86 15       	cp	r24, r6
+    13fe:	97 05       	cpc	r25, r7
+    1400:	10 f0       	brcs	.+4      	; 0x1406 <sed1520DrawImage+0x6a>
+		clipX = img.width - 1;
+    1402:	0f ef       	ldi	r16, 0xFF	; 255
+    1404:	06 0d       	add	r16, r6
+	}
+	if(clipY >= img.height) {
+    1406:	8e 2d       	mov	r24, r14
+    1408:	90 e0       	ldi	r25, 0x00	; 0
+    140a:	8e 17       	cp	r24, r30
+    140c:	9f 07       	cpc	r25, r31
+    140e:	18 f0       	brcs	.+6      	; 0x1416 <sed1520DrawImage+0x7a>
+		clipY = img.height - 1;
+    1410:	ee 24       	eor	r14, r14
+    1412:	ea 94       	dec	r14
+    1414:	e8 0c       	add	r14, r8
+	}
+	if(clipWidth + clipX > img.width) {
+    1416:	80 2f       	mov	r24, r16
+    1418:	90 e0       	ldi	r25, 0x00	; 0
+    141a:	8c 0d       	add	r24, r12
+    141c:	91 1d       	adc	r25, r1
+    141e:	48 16       	cp	r4, r24
+    1420:	59 06       	cpc	r5, r25
+    1422:	10 f4       	brcc	.+4      	; 0x1428 <sed1520DrawImage+0x8c>
+		clipWidth = img.width - clipX;
+    1424:	c6 2c       	mov	r12, r6
+    1426:	c0 1a       	sub	r12, r16
+	}
+	if(clipHeight + clipY > img.height) {
+    1428:	8e 2d       	mov	r24, r14
+    142a:	90 e0       	ldi	r25, 0x00	; 0
+    142c:	8a 0d       	add	r24, r10
+    142e:	91 1d       	adc	r25, r1
+    1430:	e8 17       	cp	r30, r24
+    1432:	f9 07       	cpc	r31, r25
+    1434:	10 f4       	brcc	.+4      	; 0x143a <sed1520DrawImage+0x9e>
+		clipHeight = img.height - clipY;
+    1436:	a8 2c       	mov	r10, r8
+    1438:	ae 18       	sub	r10, r14
+	}
+	
+	if(clipWidth == 0 && clipHeight == 0 && clipX == 0 && clipY == 0) {
+    143a:	c1 10       	cpse	r12, r1
+    143c:	08 c0       	rjmp	.+16     	; 0x144e <sed1520DrawImage+0xb2>
+    143e:	a1 10       	cpse	r10, r1
+    1440:	06 c0       	rjmp	.+12     	; 0x144e <sed1520DrawImage+0xb2>
+    1442:	01 11       	cpse	r16, r1
+    1444:	04 c0       	rjmp	.+8      	; 0x144e <sed1520DrawImage+0xb2>
+    1446:	e1 10       	cpse	r14, r1
+    1448:	02 c0       	rjmp	.+4      	; 0x144e <sed1520DrawImage+0xb2>
+		clipX = 0;
+		clipY = 0;
+		clipWidth  = img.width;
+    144a:	c6 2c       	mov	r12, r6
+		clipHeight = img.height;
+    144c:	a8 2c       	mov	r10, r8
+	}
+	
+	if(originX < 0) {
+    144e:	bb 23       	and	r27, r27
+    1450:	34 f4       	brge	.+12     	; 0x145e <sed1520DrawImage+0xc2>
+		clipWidth += originX;
+    1452:	c2 0e       	add	r12, r18
+		originX = 0;
+	}
+	if(originY < 0) {
+    1454:	55 23       	and	r21, r21
+    1456:	34 f0       	brlt	.+12     	; 0x1464 <sed1520DrawImage+0xc8>
+		clipHeight = img.height;
+	}
+	
+	if(originX < 0) {
+		clipWidth += originX;
+		originX = 0;
+    1458:	a0 e0       	ldi	r26, 0x00	; 0
+    145a:	b0 e0       	ldi	r27, 0x00	; 0
+    145c:	0f c0       	rjmp	.+30     	; 0x147c <sed1520DrawImage+0xe0>
+	}
+	if(originY < 0) {
+    145e:	55 23       	and	r21, r21
+    1460:	54 f4       	brge	.+20     	; 0x1476 <sed1520DrawImage+0xda>
+    1462:	02 c0       	rjmp	.+4      	; 0x1468 <sed1520DrawImage+0xcc>
+		clipHeight = img.height;
+	}
+	
+	if(originX < 0) {
+		clipWidth += originX;
+		originX = 0;
+    1464:	a0 e0       	ldi	r26, 0x00	; 0
+    1466:	b0 e0       	ldi	r27, 0x00	; 0
+	}
+	if(originY < 0) {
+		clipHeight += originY;
+		originY = 0;
+	}
+	if(!(originX >= SED1520_SCREENWIDTH || originY >= SED1520_SCREENHEIGHT)) {
+    1468:	aa 37       	cpi	r26, 0x7A	; 122
+    146a:	b1 05       	cpc	r27, r1
+    146c:	c4 f4       	brge	.+48     	; 0x149e <sed1520DrawImage+0x102>
+	if(originX < 0) {
+		clipWidth += originX;
+		originX = 0;
+	}
+	if(originY < 0) {
+		clipHeight += originY;
+    146e:	a3 0e       	add	r10, r19
+		originY = 0;
+    1470:	40 e0       	ldi	r20, 0x00	; 0
+    1472:	50 e0       	ldi	r21, 0x00	; 0
+    1474:	06 c0       	rjmp	.+12     	; 0x1482 <sed1520DrawImage+0xe6>
+	}
+	if(!(originX >= SED1520_SCREENWIDTH || originY >= SED1520_SCREENHEIGHT)) {
+    1476:	aa 37       	cpi	r26, 0x7A	; 122
+    1478:	b1 05       	cpc	r27, r1
+    147a:	8c f4       	brge	.+34     	; 0x149e <sed1520DrawImage+0x102>
+    147c:	40 32       	cpi	r20, 0x20	; 32
+    147e:	51 05       	cpc	r21, r1
+    1480:	74 f4       	brge	.+28     	; 0x149e <sed1520DrawImage+0x102>
+		img.x -= clipX;
+    1482:	20 1b       	sub	r18, r16
+    1484:	29 83       	std	Y+1, r18	; 0x01
+		img.y -= clipY;
+    1486:	3e 19       	sub	r19, r14
+    1488:	3a 83       	std	Y+2, r19	; 0x02
+		
+		sed1520ShaderExecute((SED1520SHADERCALLBACK) sed1520DrawImageShader, originX, originY, clipWidth, clipHeight, (void*) &img);
+    148a:	ce 01       	movw	r24, r28
+    148c:	01 96       	adiw	r24, 0x01	; 1
+    148e:	7c 01       	movw	r14, r24
+    1490:	0a 2d       	mov	r16, r10
+    1492:	2c 2d       	mov	r18, r12
+    1494:	6a 2f       	mov	r22, r26
+    1496:	8b e5       	ldi	r24, 0x5B	; 91
+    1498:	97 e0       	ldi	r25, 0x07	; 7
+    149a:	0e 94 6a 08 	call	0x10d4	; 0x10d4 <sed1520ShaderExecute>
+	}
+	
+	return img.highestX;
+}
+    149e:	89 85       	ldd	r24, Y+9	; 0x09
+    14a0:	9a 85       	ldd	r25, Y+10	; 0x0a
+    14a2:	2b 96       	adiw	r28, 0x0b	; 11
+    14a4:	0f b6       	in	r0, 0x3f	; 63
+    14a6:	f8 94       	cli
+    14a8:	de bf       	out	0x3e, r29	; 62
+    14aa:	0f be       	out	0x3f, r0	; 63
+    14ac:	cd bf       	out	0x3d, r28	; 61
+    14ae:	df 91       	pop	r29
+    14b0:	cf 91       	pop	r28
+    14b2:	0f 91       	pop	r16
+    14b4:	ff 90       	pop	r15
+    14b6:	ef 90       	pop	r14
+    14b8:	cf 90       	pop	r12
+    14ba:	af 90       	pop	r10
+    14bc:	9f 90       	pop	r9
+    14be:	8f 90       	pop	r8
+    14c0:	7f 90       	pop	r7
+    14c2:	6f 90       	pop	r6
+    14c4:	5f 90       	pop	r5
+    14c6:	4f 90       	pop	r4
+    14c8:	08 95       	ret
+
+000014ca <sed1520DrawText>:
+
+void sed1520DrawText(char* text, uint8_t* font, uint8_t mode, int16_t originX, int16_t originY, uint8_t fixedWidth, int8_t deltaCharDist) {
+    14ca:	2f 92       	push	r2
+    14cc:	3f 92       	push	r3
+    14ce:	4f 92       	push	r4
+    14d0:	5f 92       	push	r5
+    14d2:	6f 92       	push	r6
+    14d4:	7f 92       	push	r7
+    14d6:	8f 92       	push	r8
+    14d8:	9f 92       	push	r9
+    14da:	af 92       	push	r10
+    14dc:	bf 92       	push	r11
+    14de:	cf 92       	push	r12
+    14e0:	df 92       	push	r13
+    14e2:	ef 92       	push	r14
+    14e4:	ff 92       	push	r15
+    14e6:	0f 93       	push	r16
+    14e8:	1f 93       	push	r17
+    14ea:	cf 93       	push	r28
+    14ec:	df 93       	push	r29
+    14ee:	cd b7       	in	r28, 0x3d	; 61
+    14f0:	de b7       	in	r29, 0x3e	; 62
+    14f2:	2b 97       	sbiw	r28, 0x0b	; 11
+    14f4:	0f b6       	in	r0, 0x3f	; 63
+    14f6:	f8 94       	cli
+    14f8:	de bf       	out	0x3e, r29	; 62
+    14fa:	0f be       	out	0x3f, r0	; 63
+    14fc:	cd bf       	out	0x3d, r28	; 61
+    14fe:	4c 01       	movw	r8, r24
+    1500:	7a 83       	std	Y+2, r23	; 0x02
+    1502:	69 83       	std	Y+1, r22	; 0x01
+    1504:	f4 2e       	mov	r15, r20
+    1506:	52 2f       	mov	r21, r18
+    1508:	43 2f       	mov	r20, r19
+    150a:	38 01       	movw	r6, r16
+    150c:	1e 2d       	mov	r17, r14
+	uint16_t charWidth  = pgm_read_word(font) / 32;
+    150e:	fb 01       	movw	r30, r22
+    1510:	85 91       	lpm	r24, Z+
+    1512:	94 91       	lpm	r25, Z
+    1514:	2c 01       	movw	r4, r24
+    1516:	56 94       	lsr	r5
+    1518:	47 94       	ror	r4
+    151a:	56 94       	lsr	r5
+    151c:	47 94       	ror	r4
+    151e:	56 94       	lsr	r5
+    1520:	47 94       	ror	r4
+    1522:	56 94       	lsr	r5
+    1524:	47 94       	ror	r4
+    1526:	56 94       	lsr	r5
+    1528:	47 94       	ror	r4
+	uint16_t charHeight = pgm_read_word(font + 2) / 3;
+    152a:	fb 01       	movw	r30, r22
+    152c:	32 96       	adiw	r30, 0x02	; 2
+    152e:	25 91       	lpm	r18, Z+
+    1530:	34 91       	lpm	r19, Z
+    1532:	ab ea       	ldi	r26, 0xAB	; 171
+    1534:	ba ea       	ldi	r27, 0xAA	; 170
+    1536:	0e 94 34 0c 	call	0x1868	; 0x1868 <__umulhisi3>
+    153a:	1c 01       	movw	r2, r24
+    153c:	36 94       	lsr	r3
+    153e:	27 94       	ror	r2
+	int16_t x = originX;
+	int16_t y = originY;
+	int16_t charEndX = x;
+	
+	if(!fixedWidth) {
+    1540:	e1 10       	cpse	r14, r1
+    1542:	01 c0       	rjmp	.+2      	; 0x1546 <sed1520DrawText+0x7c>
+		deltaCharDist ++;
+    1544:	c3 94       	inc	r12
+	}
+	
+	while(*text != 0) {
+    1546:	d4 01       	movw	r26, r8
+    1548:	2c 91       	ld	r18, X
+    154a:	22 23       	and	r18, r18
+    154c:	09 f4       	brne	.+2      	; 0x1550 <sed1520DrawText+0x86>
+    154e:	6d c0       	rjmp	.+218    	; 0x162a <sed1520DrawText+0x160>
+				tableY ++;
+			}
+			
+			charEndX = sed1520DrawImage(font, mode, x, y, tableX * charWidth, tableY * charHeight, charWidth, charHeight);
+		} else {
+			charEndX = x + (charWidth * 3) / 2;
+    1550:	c2 01       	movw	r24, r4
+    1552:	88 0f       	add	r24, r24
+    1554:	99 1f       	adc	r25, r25
+    1556:	84 0d       	add	r24, r4
+    1558:	95 1d       	adc	r25, r5
+    155a:	fc 01       	movw	r30, r24
+    155c:	f6 95       	lsr	r31
+    155e:	e7 95       	ror	r30
+    1560:	fc 83       	std	Y+4, r31	; 0x04
+    1562:	eb 83       	std	Y+3, r30	; 0x03
+    1564:	5a 87       	std	Y+10, r21	; 0x0a
+    1566:	4b 87       	std	Y+11, r20	; 0x0b
+    1568:	0f 2e       	mov	r0, r31
+    156a:	f0 ee       	ldi	r31, 0xE0	; 224
+    156c:	df 2e       	mov	r13, r31
+    156e:	f0 2d       	mov	r31, r0
+			y += charHeight;
+		} else {
+			if(fixedWidth) {
+				x += charWidth + deltaCharDist;
+			} else {
+				x = charEndX + deltaCharDist;
+    1570:	6c 2d       	mov	r22, r12
+    1572:	77 27       	eor	r23, r23
+    1574:	67 fd       	sbrc	r22, 7
+    1576:	70 95       	com	r23
+    1578:	7e 83       	std	Y+6, r23	; 0x06
+    157a:	6d 83       	std	Y+5, r22	; 0x05
+		if(*text == '\n') {
+			x = originX;
+			y += charHeight;
+		} else {
+			if(fixedWidth) {
+				x += charWidth + deltaCharDist;
+    157c:	64 0d       	add	r22, r4
+    157e:	75 1d       	adc	r23, r5
+    1580:	78 87       	std	Y+8, r23	; 0x08
+    1582:	6f 83       	std	Y+7, r22	; 0x07
+		} else {
+			charEndX = x + (charWidth * 3) / 2;
+		}
+		
+		if(*text == '\n') {
+			x = originX;
+    1584:	b5 2e       	mov	r11, r21
+    1586:	49 87       	std	Y+9, r20	; 0x09
+    1588:	8a 84       	ldd	r8, Y+10	; 0x0a
+    158a:	9b 84       	ldd	r9, Y+11	; 0x0b
+    158c:	bb 87       	std	Y+11, r27	; 0x0b
+    158e:	aa 87       	std	Y+10, r26	; 0x0a
+	
+	while(*text != 0) {
+		uint8_t tableX;
+		uint8_t tableY;
+		
+		if(*text > ' ' && *text < 128) {
+    1590:	8f ed       	ldi	r24, 0xDF	; 223
+    1592:	82 0f       	add	r24, r18
+    1594:	8f 35       	cpi	r24, 0x5F	; 95
+    1596:	48 f5       	brcc	.+82     	; 0x15ea <sed1520DrawText+0x120>
+			tableX = *text - ' ';
+    1598:	00 ee       	ldi	r16, 0xE0	; 224
+    159a:	02 0f       	add	r16, r18
+			
+			tableY = 0;
+			while(tableX >= 32) {
+    159c:	00 32       	cpi	r16, 0x20	; 32
+    159e:	a0 f0       	brcs	.+40     	; 0x15c8 <sed1520DrawText+0xfe>
+    15a0:	8a 85       	ldd	r24, Y+10	; 0x0a
+    15a2:	9b 85       	ldd	r25, Y+11	; 0x0b
+				tableX -= 32;
+    15a4:	00 52       	subi	r16, 0x20	; 32
+		
+		if(*text > ' ' && *text < 128) {
+			tableX = *text - ' ';
+			
+			tableY = 0;
+			while(tableX >= 32) {
+    15a6:	00 32       	cpi	r16, 0x20	; 32
+    15a8:	e8 f7       	brcc	.-6      	; 0x15a4 <sed1520DrawText+0xda>
+    15aa:	9b 87       	std	Y+11, r25	; 0x0b
+    15ac:	8a 87       	std	Y+10, r24	; 0x0a
+    15ae:	00 ec       	ldi	r16, 0xC0	; 192
+    15b0:	02 0f       	add	r16, r18
+    15b2:	e0 2e       	mov	r14, r16
+    15b4:	e6 94       	lsr	r14
+    15b6:	e6 94       	lsr	r14
+    15b8:	e6 94       	lsr	r14
+    15ba:	e6 94       	lsr	r14
+    15bc:	e6 94       	lsr	r14
+    15be:	ed 9c       	mul	r14, r13
+    15c0:	00 0d       	add	r16, r0
+    15c2:	11 24       	eor	r1, r1
+    15c4:	e3 94       	inc	r14
+    15c6:	01 c0       	rjmp	.+2      	; 0x15ca <sed1520DrawText+0x100>
+		uint8_t tableY;
+		
+		if(*text > ' ' && *text < 128) {
+			tableX = *text - ' ';
+			
+			tableY = 0;
+    15c8:	e1 2c       	mov	r14, r1
+			while(tableX >= 32) {
+				tableX -= 32;
+				tableY ++;
+			}
+			
+			charEndX = sed1520DrawImage(font, mode, x, y, tableX * charWidth, tableY * charHeight, charWidth, charHeight);
+    15ca:	e2 9c       	mul	r14, r2
+    15cc:	e0 2c       	mov	r14, r0
+    15ce:	11 24       	eor	r1, r1
+    15d0:	04 9d       	mul	r16, r4
+    15d2:	00 2d       	mov	r16, r0
+    15d4:	11 24       	eor	r1, r1
+    15d6:	a2 2c       	mov	r10, r2
+    15d8:	c4 2c       	mov	r12, r4
+    15da:	93 01       	movw	r18, r6
+    15dc:	a4 01       	movw	r20, r8
+    15de:	6f 2d       	mov	r22, r15
+    15e0:	89 81       	ldd	r24, Y+1	; 0x01
+    15e2:	9a 81       	ldd	r25, Y+2	; 0x02
+    15e4:	0e 94 ce 09 	call	0x139c	; 0x139c <sed1520DrawImage>
+    15e8:	04 c0       	rjmp	.+8      	; 0x15f2 <sed1520DrawText+0x128>
+		} else {
+			charEndX = x + (charWidth * 3) / 2;
+    15ea:	8b 81       	ldd	r24, Y+3	; 0x03
+    15ec:	9c 81       	ldd	r25, Y+4	; 0x04
+    15ee:	88 0d       	add	r24, r8
+    15f0:	99 1d       	adc	r25, r9
+		}
+		
+		if(*text == '\n') {
+    15f2:	aa 85       	ldd	r26, Y+10	; 0x0a
+    15f4:	bb 85       	ldd	r27, Y+11	; 0x0b
+    15f6:	2d 91       	ld	r18, X+
+    15f8:	bb 87       	std	Y+11, r27	; 0x0b
+    15fa:	aa 87       	std	Y+10, r26	; 0x0a
+    15fc:	2a 30       	cpi	r18, 0x0A	; 10
+    15fe:	29 f4       	brne	.+10     	; 0x160a <sed1520DrawText+0x140>
+			x = originX;
+			y += charHeight;
+    1600:	62 0c       	add	r6, r2
+    1602:	73 1c       	adc	r7, r3
+		} else {
+			charEndX = x + (charWidth * 3) / 2;
+		}
+		
+		if(*text == '\n') {
+			x = originX;
+    1604:	8b 2c       	mov	r8, r11
+    1606:	99 84       	ldd	r9, Y+9	; 0x09
+    1608:	0b c0       	rjmp	.+22     	; 0x1620 <sed1520DrawText+0x156>
+			y += charHeight;
+		} else {
+			if(fixedWidth) {
+    160a:	11 23       	and	r17, r17
+    160c:	29 f0       	breq	.+10     	; 0x1618 <sed1520DrawText+0x14e>
+				x += charWidth + deltaCharDist;
+    160e:	ef 81       	ldd	r30, Y+7	; 0x07
+    1610:	f8 85       	ldd	r31, Y+8	; 0x08
+    1612:	8e 0e       	add	r8, r30
+    1614:	9f 1e       	adc	r9, r31
+    1616:	04 c0       	rjmp	.+8      	; 0x1620 <sed1520DrawText+0x156>
+			} else {
+				x = charEndX + deltaCharDist;
+    1618:	8d 80       	ldd	r8, Y+5	; 0x05
+    161a:	9e 80       	ldd	r9, Y+6	; 0x06
+    161c:	88 0e       	add	r8, r24
+    161e:	99 1e       	adc	r9, r25
+	
+	if(!fixedWidth) {
+		deltaCharDist ++;
+	}
+	
+	while(*text != 0) {
+    1620:	aa 85       	ldd	r26, Y+10	; 0x0a
+    1622:	bb 85       	ldd	r27, Y+11	; 0x0b
+    1624:	2c 91       	ld	r18, X
+    1626:	21 11       	cpse	r18, r1
+    1628:	b3 cf       	rjmp	.-154    	; 0x1590 <sed1520DrawText+0xc6>
+			}
+		}
+		
+		text ++;
+	}
+}
+    162a:	2b 96       	adiw	r28, 0x0b	; 11
+    162c:	0f b6       	in	r0, 0x3f	; 63
+    162e:	f8 94       	cli
+    1630:	de bf       	out	0x3e, r29	; 62
+    1632:	0f be       	out	0x3f, r0	; 63
+    1634:	cd bf       	out	0x3d, r28	; 61
+    1636:	df 91       	pop	r29
+    1638:	cf 91       	pop	r28
+    163a:	1f 91       	pop	r17
+    163c:	0f 91       	pop	r16
+    163e:	ff 90       	pop	r15
+    1640:	ef 90       	pop	r14
+    1642:	df 90       	pop	r13
+    1644:	cf 90       	pop	r12
+    1646:	bf 90       	pop	r11
+    1648:	af 90       	pop	r10
+    164a:	9f 90       	pop	r9
+    164c:	8f 90       	pop	r8
+    164e:	7f 90       	pop	r7
+    1650:	6f 90       	pop	r6
+    1652:	5f 90       	pop	r5
+    1654:	4f 90       	pop	r4
+    1656:	3f 90       	pop	r3
+    1658:	2f 90       	pop	r2
+    165a:	08 95       	ret
+
+0000165c <sed1520DrawLine>:
+		sed1520DrawLine(x, y, x, y + height, pixelValue);
+		sed1520DrawLine(x + width, y, x + width, y + height, pixelValue);
+	}
+}
+
+void sed1520DrawLine(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, uint8_t pixelValue) {
+    165c:	2f 92       	push	r2
+    165e:	3f 92       	push	r3
+    1660:	4f 92       	push	r4
+    1662:	5f 92       	push	r5
+    1664:	6f 92       	push	r6
+    1666:	7f 92       	push	r7
+    1668:	8f 92       	push	r8
+    166a:	9f 92       	push	r9
+    166c:	af 92       	push	r10
+    166e:	bf 92       	push	r11
+    1670:	cf 92       	push	r12
+    1672:	df 92       	push	r13
+    1674:	ef 92       	push	r14
+    1676:	ff 92       	push	r15
+    1678:	0f 93       	push	r16
+    167a:	1f 93       	push	r17
+    167c:	cf 93       	push	r28
+    167e:	df 93       	push	r29
+    1680:	00 d0       	rcall	.+0      	; 0x1682 <sed1520DrawLine+0x26>
+    1682:	00 d0       	rcall	.+0      	; 0x1684 <sed1520DrawLine+0x28>
+    1684:	cd b7       	in	r28, 0x3d	; 61
+    1686:	de b7       	in	r29, 0x3e	; 62
+    1688:	18 2f       	mov	r17, r24
+    168a:	36 2e       	mov	r3, r22
+    168c:	4a 83       	std	Y+2, r20	; 0x02
+    168e:	29 83       	std	Y+1, r18	; 0x01
+    1690:	20 2e       	mov	r2, r16
+	if(x1 == x2) {
+    1692:	84 13       	cpse	r24, r20
+    1694:	17 c0       	rjmp	.+46     	; 0x16c4 <sed1520DrawLine+0x68>
+		if(y1 > y2) {
+    1696:	26 17       	cp	r18, r22
+    1698:	18 f4       	brcc	.+6      	; 0x16a0 <sed1520DrawLine+0x44>
+			uint8_t swapValue;
+			
+			swapValue = y1;
+			y1 = y2;
+    169a:	32 2e       	mov	r3, r18
+			y2 = swapValue;
+    169c:	69 83       	std	Y+1, r22	; 0x01
+    169e:	03 c0       	rjmp	.+6      	; 0x16a6 <sed1520DrawLine+0x4a>
+		}
+		
+		for(uint8_t y = y1; y < y2; y ++) {
+    16a0:	29 81       	ldd	r18, Y+1	; 0x01
+    16a2:	62 17       	cp	r22, r18
+    16a4:	48 f4       	brcc	.+18     	; 0x16b8 <sed1520DrawLine+0x5c>
+			sed1520SetPixel(x1, y, pixelValue);
+    16a6:	42 2d       	mov	r20, r2
+    16a8:	63 2d       	mov	r22, r3
+    16aa:	81 2f       	mov	r24, r17
+    16ac:	0e 94 12 08 	call	0x1024	; 0x1024 <sed1520SetPixel>
+			swapValue = y1;
+			y1 = y2;
+			y2 = swapValue;
+		}
+		
+		for(uint8_t y = y1; y < y2; y ++) {
+    16b0:	33 94       	inc	r3
+    16b2:	39 81       	ldd	r19, Y+1	; 0x01
+    16b4:	33 16       	cp	r3, r19
+    16b6:	b8 f3       	brcs	.-18     	; 0x16a6 <sed1520DrawLine+0x4a>
+			sed1520SetPixel(x1, y, pixelValue);
+		}
+		sed1520SetPixel(x2, y2, pixelValue);
+    16b8:	42 2d       	mov	r20, r2
+    16ba:	69 81       	ldd	r22, Y+1	; 0x01
+    16bc:	81 2f       	mov	r24, r17
+    16be:	0e 94 12 08 	call	0x1024	; 0x1024 <sed1520SetPixel>
+    16c2:	5e c0       	rjmp	.+188    	; 0x1780 <sed1520DrawLine+0x124>
+	} else if(y1 == y2) {
+    16c4:	89 81       	ldd	r24, Y+1	; 0x01
+    16c6:	68 13       	cpse	r22, r24
+    16c8:	19 c0       	rjmp	.+50     	; 0x16fc <sed1520DrawLine+0xa0>
+		if(x1 > x2) {
+    16ca:	9a 81       	ldd	r25, Y+2	; 0x02
+    16cc:	91 17       	cp	r25, r17
+    16ce:	20 f4       	brcc	.+8      	; 0x16d8 <sed1520DrawLine+0x7c>
+    16d0:	81 2f       	mov	r24, r17
+			uint8_t swapValue;
+			
+			swapValue = x1;
+			x1 = x2;
+    16d2:	19 2f       	mov	r17, r25
+			x2 = swapValue;
+    16d4:	8a 83       	std	Y+2, r24	; 0x02
+    16d6:	03 c0       	rjmp	.+6      	; 0x16de <sed1520DrawLine+0x82>
+		}
+		
+		for(uint8_t x = x1; x < x2; x ++) {
+    16d8:	ea 81       	ldd	r30, Y+2	; 0x02
+    16da:	1e 17       	cp	r17, r30
+    16dc:	48 f4       	brcc	.+18     	; 0x16f0 <sed1520DrawLine+0x94>
+			sed1520SetPixel(x, y1, pixelValue);
+    16de:	42 2d       	mov	r20, r2
+    16e0:	63 2d       	mov	r22, r3
+    16e2:	81 2f       	mov	r24, r17
+    16e4:	0e 94 12 08 	call	0x1024	; 0x1024 <sed1520SetPixel>
+			swapValue = x1;
+			x1 = x2;
+			x2 = swapValue;
+		}
+		
+		for(uint8_t x = x1; x < x2; x ++) {
+    16e8:	1f 5f       	subi	r17, 0xFF	; 255
+    16ea:	fa 81       	ldd	r31, Y+2	; 0x02
+    16ec:	1f 17       	cp	r17, r31
+    16ee:	b8 f3       	brcs	.-18     	; 0x16de <sed1520DrawLine+0x82>
+			sed1520SetPixel(x, y1, pixelValue);
+		}
+		sed1520SetPixel(x2, y2, pixelValue);
+    16f0:	42 2d       	mov	r20, r2
+    16f2:	63 2d       	mov	r22, r3
+    16f4:	8a 81       	ldd	r24, Y+2	; 0x02
+    16f6:	0e 94 12 08 	call	0x1024	; 0x1024 <sed1520SetPixel>
+    16fa:	42 c0       	rjmp	.+132    	; 0x1780 <sed1520DrawLine+0x124>
+	} else if(x1 > x2) {
+    16fc:	2a 81       	ldd	r18, Y+2	; 0x02
+    16fe:	21 17       	cp	r18, r17
+    1700:	38 f4       	brcc	.+14     	; 0x1710 <sed1520DrawLine+0xb4>
+		sed1520DrawLine(x2, y2, x1, y1, pixelValue);
+    1702:	26 2f       	mov	r18, r22
+    1704:	41 2f       	mov	r20, r17
+    1706:	69 81       	ldd	r22, Y+1	; 0x01
+    1708:	8a 81       	ldd	r24, Y+2	; 0x02
+    170a:	0e 94 2e 0b 	call	0x165c	; 0x165c <sed1520DrawLine>
+    170e:	38 c0       	rjmp	.+112    	; 0x1780 <sed1520DrawLine+0x124>
+	} else {
+		uint8_t oldX = x1;
+		uint8_t oldY = y1;
+		int16_t nominator   = (int16_t) y2 -  (int16_t) y1;
+    1710:	a6 2e       	mov	r10, r22
+    1712:	b1 2c       	mov	r11, r1
+    1714:	39 81       	ldd	r19, Y+1	; 0x01
+    1716:	63 2e       	mov	r6, r19
+    1718:	71 2c       	mov	r7, r1
+    171a:	6a 18       	sub	r6, r10
+    171c:	7b 08       	sbc	r7, r11
+		int16_t denominator = (int16_t) x2 -  (int16_t) x1;
+    171e:	8a 81       	ldd	r24, Y+2	; 0x02
+    1720:	c8 2e       	mov	r12, r24
+    1722:	d1 2c       	mov	r13, r1
+    1724:	81 2f       	mov	r24, r17
+    1726:	90 e0       	ldi	r25, 0x00	; 0
+    1728:	46 01       	movw	r8, r12
+    172a:	88 1a       	sub	r8, r24
+    172c:	99 0a       	sbc	r9, r25
+		
+		for(int16_t x = x1 + 1; x <= x2; x ++) {
+    172e:	fc 01       	movw	r30, r24
+    1730:	31 96       	adiw	r30, 0x01	; 1
+    1732:	fc 83       	std	Y+4, r31	; 0x04
+    1734:	eb 83       	std	Y+3, r30	; 0x03
+    1736:	ce 16       	cp	r12, r30
+    1738:	df 06       	cpc	r13, r31
+    173a:	ec f0       	brlt	.+58     	; 0x1776 <sed1520DrawLine+0x11a>
+    173c:	23 01       	movw	r4, r6
+			int16_t y = (x - (int16_t) x1) * nominator;
+			
+			y /= denominator;
+    173e:	c3 01       	movw	r24, r6
+    1740:	b4 01       	movw	r22, r8
+    1742:	0e 94 20 0c 	call	0x1840	; 0x1840 <__divmodhi4>
+			y += (int16_t) y1;
+    1746:	75 01       	movw	r14, r10
+    1748:	e6 0e       	add	r14, r22
+    174a:	f7 1e       	adc	r15, r23
+			
+			sed1520DrawLine(oldX, oldY, oldX, (uint16_t) y, pixelValue);
+    174c:	02 2d       	mov	r16, r2
+    174e:	2e 2d       	mov	r18, r14
+    1750:	41 2f       	mov	r20, r17
+    1752:	63 2d       	mov	r22, r3
+    1754:	81 2f       	mov	r24, r17
+    1756:	0e 94 2e 0b 	call	0x165c	; 0x165c <sed1520DrawLine>
+			
+			oldX = x;
+    175a:	1b 81       	ldd	r17, Y+3	; 0x03
+		uint8_t oldX = x1;
+		uint8_t oldY = y1;
+		int16_t nominator   = (int16_t) y2 -  (int16_t) y1;
+		int16_t denominator = (int16_t) x2 -  (int16_t) x1;
+		
+		for(int16_t x = x1 + 1; x <= x2; x ++) {
+    175c:	2b 81       	ldd	r18, Y+3	; 0x03
+    175e:	3c 81       	ldd	r19, Y+4	; 0x04
+    1760:	2f 5f       	subi	r18, 0xFF	; 255
+    1762:	3f 4f       	sbci	r19, 0xFF	; 255
+    1764:	3c 83       	std	Y+4, r19	; 0x04
+    1766:	2b 83       	std	Y+3, r18	; 0x03
+    1768:	64 0c       	add	r6, r4
+    176a:	75 1c       	adc	r7, r5
+    176c:	c2 16       	cp	r12, r18
+    176e:	d3 06       	cpc	r13, r19
+    1770:	14 f0       	brlt	.+4      	; 0x1776 <sed1520DrawLine+0x11a>
+			y += (int16_t) y1;
+			
+			sed1520DrawLine(oldX, oldY, oldX, (uint16_t) y, pixelValue);
+			
+			oldX = x;
+			oldY = y;
+    1772:	3e 2c       	mov	r3, r14
+    1774:	e4 cf       	rjmp	.-56     	; 0x173e <sed1520DrawLine+0xe2>
+		}
+		
+		sed1520SetPixel(x2, y2, pixelValue);
+    1776:	42 2d       	mov	r20, r2
+    1778:	69 81       	ldd	r22, Y+1	; 0x01
+    177a:	8a 81       	ldd	r24, Y+2	; 0x02
+    177c:	0e 94 12 08 	call	0x1024	; 0x1024 <sed1520SetPixel>
+	}
+}
+    1780:	0f 90       	pop	r0
+    1782:	0f 90       	pop	r0
+    1784:	0f 90       	pop	r0
+    1786:	0f 90       	pop	r0
+    1788:	df 91       	pop	r29
+    178a:	cf 91       	pop	r28
+    178c:	1f 91       	pop	r17
+    178e:	0f 91       	pop	r16
+    1790:	ff 90       	pop	r15
+    1792:	ef 90       	pop	r14
+    1794:	df 90       	pop	r13
+    1796:	cf 90       	pop	r12
+    1798:	bf 90       	pop	r11
+    179a:	af 90       	pop	r10
+    179c:	9f 90       	pop	r9
+    179e:	8f 90       	pop	r8
+    17a0:	7f 90       	pop	r7
+    17a2:	6f 90       	pop	r6
+    17a4:	5f 90       	pop	r5
+    17a6:	4f 90       	pop	r4
+    17a8:	3f 90       	pop	r3
+    17aa:	2f 90       	pop	r2
+    17ac:	08 95       	ret
+
+000017ae <sed1520DrawBox>:
+
+uint8_t sed1520FillShader(uint8_t x, uint8_t y, uint8_t value, uint8_t* pixelValue) {
+	return *pixelValue;
+}
+
+void sed1520DrawBox(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t filled, uint8_t pixelValue) {
+    17ae:	cf 92       	push	r12
+    17b0:	df 92       	push	r13
+    17b2:	ef 92       	push	r14
+    17b4:	ff 92       	push	r15
+    17b6:	0f 93       	push	r16
+    17b8:	1f 93       	push	r17
+    17ba:	cf 93       	push	r28
+    17bc:	df 93       	push	r29
+    17be:	1f 92       	push	r1
+    17c0:	cd b7       	in	r28, 0x3d	; 61
+    17c2:	de b7       	in	r29, 0x3e	; 62
+    17c4:	d8 2e       	mov	r13, r24
+    17c6:	16 2f       	mov	r17, r22
+    17c8:	c2 2e       	mov	r12, r18
+    17ca:	e9 82       	std	Y+1, r14	; 0x01
+	if(filled) {
+    17cc:	00 23       	and	r16, r16
+    17ce:	61 f0       	breq	.+24     	; 0x17e8 <sed1520DrawBox+0x3a>
+		sed1520ShaderExecute((SED1520SHADERCALLBACK) sed1520FillShader, x, y, width, height, (void*) &pixelValue);
+    17d0:	ce 01       	movw	r24, r28
+    17d2:	01 96       	adiw	r24, 0x01	; 1
+    17d4:	7c 01       	movw	r14, r24
+    17d6:	02 2f       	mov	r16, r18
+    17d8:	24 2f       	mov	r18, r20
+    17da:	46 2f       	mov	r20, r22
+    17dc:	6d 2d       	mov	r22, r13
+    17de:	85 ea       	ldi	r24, 0xA5	; 165
+    17e0:	97 e0       	ldi	r25, 0x07	; 7
+    17e2:	0e 94 6a 08 	call	0x10d4	; 0x10d4 <sed1520ShaderExecute>
+    17e6:	22 c0       	rjmp	.+68     	; 0x182c <sed1520DrawBox+0x7e>
+	} else {
+		width --;
+    17e8:	ff 24       	eor	r15, r15
+    17ea:	fa 94       	dec	r15
+    17ec:	f4 0e       	add	r15, r20
+		height --;
+		
+		sed1520DrawLine(x, y, x + width, y, pixelValue);
+    17ee:	f8 0e       	add	r15, r24
+    17f0:	09 81       	ldd	r16, Y+1	; 0x01
+    17f2:	26 2f       	mov	r18, r22
+    17f4:	4f 2d       	mov	r20, r15
+    17f6:	0e 94 2e 0b 	call	0x165c	; 0x165c <sed1520DrawLine>
+void sed1520DrawBox(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t filled, uint8_t pixelValue) {
+	if(filled) {
+		sed1520ShaderExecute((SED1520SHADERCALLBACK) sed1520FillShader, x, y, width, height, (void*) &pixelValue);
+	} else {
+		width --;
+		height --;
+    17fa:	ee 24       	eor	r14, r14
+    17fc:	ea 94       	dec	r14
+    17fe:	ec 0c       	add	r14, r12
+		
+		sed1520DrawLine(x, y, x + width, y, pixelValue);
+		sed1520DrawLine(x, y + height, x + width, y + height, pixelValue);
+    1800:	e1 0e       	add	r14, r17
+    1802:	09 81       	ldd	r16, Y+1	; 0x01
+    1804:	2e 2d       	mov	r18, r14
+    1806:	4f 2d       	mov	r20, r15
+    1808:	6e 2d       	mov	r22, r14
+    180a:	8d 2d       	mov	r24, r13
+    180c:	0e 94 2e 0b 	call	0x165c	; 0x165c <sed1520DrawLine>
+		
+		sed1520DrawLine(x, y, x, y + height, pixelValue);
+    1810:	09 81       	ldd	r16, Y+1	; 0x01
+    1812:	2e 2d       	mov	r18, r14
+    1814:	4d 2d       	mov	r20, r13
+    1816:	61 2f       	mov	r22, r17
+    1818:	8d 2d       	mov	r24, r13
+    181a:	0e 94 2e 0b 	call	0x165c	; 0x165c <sed1520DrawLine>
+		sed1520DrawLine(x + width, y, x + width, y + height, pixelValue);
+    181e:	09 81       	ldd	r16, Y+1	; 0x01
+    1820:	2e 2d       	mov	r18, r14
+    1822:	4f 2d       	mov	r20, r15
+    1824:	61 2f       	mov	r22, r17
+    1826:	8f 2d       	mov	r24, r15
+    1828:	0e 94 2e 0b 	call	0x165c	; 0x165c <sed1520DrawLine>
+	}
+}
+    182c:	0f 90       	pop	r0
+    182e:	df 91       	pop	r29
+    1830:	cf 91       	pop	r28
+    1832:	1f 91       	pop	r17
+    1834:	0f 91       	pop	r16
+    1836:	ff 90       	pop	r15
+    1838:	ef 90       	pop	r14
+    183a:	df 90       	pop	r13
+    183c:	cf 90       	pop	r12
+    183e:	08 95       	ret
+
+00001840 <__divmodhi4>:
+    1840:	97 fb       	bst	r25, 7
+    1842:	07 2e       	mov	r0, r23
+    1844:	16 f4       	brtc	.+4      	; 0x184a <__divmodhi4+0xa>
+    1846:	00 94       	com	r0
+    1848:	07 d0       	rcall	.+14     	; 0x1858 <__divmodhi4_neg1>
+    184a:	77 fd       	sbrc	r23, 7
+    184c:	09 d0       	rcall	.+18     	; 0x1860 <__divmodhi4_neg2>
+    184e:	0e 94 43 0c 	call	0x1886	; 0x1886 <__udivmodhi4>
+    1852:	07 fc       	sbrc	r0, 7
+    1854:	05 d0       	rcall	.+10     	; 0x1860 <__divmodhi4_neg2>
+    1856:	3e f4       	brtc	.+14     	; 0x1866 <__divmodhi4_exit>
+
+00001858 <__divmodhi4_neg1>:
+    1858:	90 95       	com	r25
+    185a:	81 95       	neg	r24
+    185c:	9f 4f       	sbci	r25, 0xFF	; 255
+    185e:	08 95       	ret
+
+00001860 <__divmodhi4_neg2>:
+    1860:	70 95       	com	r23
+    1862:	61 95       	neg	r22
+    1864:	7f 4f       	sbci	r23, 0xFF	; 255
+
+00001866 <__divmodhi4_exit>:
+    1866:	08 95       	ret
+
+00001868 <__umulhisi3>:
+    1868:	a2 9f       	mul	r26, r18
+    186a:	b0 01       	movw	r22, r0
+    186c:	b3 9f       	mul	r27, r19
+    186e:	c0 01       	movw	r24, r0
+    1870:	a3 9f       	mul	r26, r19
+    1872:	70 0d       	add	r23, r0
+    1874:	81 1d       	adc	r24, r1
+    1876:	11 24       	eor	r1, r1
+    1878:	91 1d       	adc	r25, r1
+    187a:	b2 9f       	mul	r27, r18
+    187c:	70 0d       	add	r23, r0
+    187e:	81 1d       	adc	r24, r1
+    1880:	11 24       	eor	r1, r1
+    1882:	91 1d       	adc	r25, r1
+    1884:	08 95       	ret
+
+00001886 <__udivmodhi4>:
+    1886:	aa 1b       	sub	r26, r26
+    1888:	bb 1b       	sub	r27, r27
+    188a:	51 e1       	ldi	r21, 0x11	; 17
+    188c:	07 c0       	rjmp	.+14     	; 0x189c <__udivmodhi4_ep>
+
+0000188e <__udivmodhi4_loop>:
+    188e:	aa 1f       	adc	r26, r26
+    1890:	bb 1f       	adc	r27, r27
+    1892:	a6 17       	cp	r26, r22
+    1894:	b7 07       	cpc	r27, r23
+    1896:	10 f0       	brcs	.+4      	; 0x189c <__udivmodhi4_ep>
+    1898:	a6 1b       	sub	r26, r22
+    189a:	b7 0b       	sbc	r27, r23
+
+0000189c <__udivmodhi4_ep>:
+    189c:	88 1f       	adc	r24, r24
+    189e:	99 1f       	adc	r25, r25
+    18a0:	5a 95       	dec	r21
+    18a2:	a9 f7       	brne	.-22     	; 0x188e <__udivmodhi4_loop>
+    18a4:	80 95       	com	r24
+    18a6:	90 95       	com	r25
+    18a8:	bc 01       	movw	r22, r24
+    18aa:	cd 01       	movw	r24, r26
+    18ac:	08 95       	ret
+
+000018ae <_exit>:
+    18ae:	f8 94       	cli
+
+000018b0 <__stop_program>:
+    18b0:	ff cf       	rjmp	.-2      	; 0x18b0 <__stop_program>
